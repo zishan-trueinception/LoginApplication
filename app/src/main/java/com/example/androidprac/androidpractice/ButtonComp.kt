@@ -15,13 +15,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+//enum class for different types of button
 enum class ButtonType {
     DEFAULT,
     PRESSED,
     DISABLED
 }
 
-
+//Reusable function button
 @Composable
 fun ButtonComp(
     Text: String,
