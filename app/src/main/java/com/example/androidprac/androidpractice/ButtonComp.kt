@@ -21,24 +21,7 @@ enum class ButtonType {
     DISABLED
 }
 
-/* siddhant
-*
-*
-*
-*
-* ofgjodtsjughoipdtjh'pfdt';[hlfd
-* gh
-* fdtg
-* h
-*
-* ftdy
-* j
-* f
-* yj
-*
-* fy
-* j
-*  */
+
 @Composable
 fun ButtonComp(
     Text: String,
