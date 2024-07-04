@@ -21,7 +21,7 @@ enum class ButtonType {
     DISABLED
 }
 
-//siddhant gour
+/* siddhant */
 @Composable
 fun ButtonComp(
     Text: String,
