@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-enum class ButtonType{
+enum class ButtonType {
     DEFAULT,
     PRESSED,
     DISABLED
@@ -34,13 +34,15 @@ fun ButtonComp(
     contentColor: Color,
 
 
-){
-    Button(onClick = onClick,
+    ) {
+    Button(
+        onClick = onClick,
         modifier = Modifier
-        .width(147.dp)
-        .height(48.dp)
-        .background(color = Color.Yellow, shape = RoundedCornerShape(size = 8.dp))
-        .padding(start = 20.dp, top = 12.dp, end = 20.dp, bottom = 12.dp)) {
+            .width(147.dp)
+            .height(48.dp)
+            .background(color = Color.Yellow, shape = RoundedCornerShape(size = 8.dp))
+            .padding(start = 20.dp, top = 12.dp, end = 20.dp, bottom = 12.dp)
+    ) {
         Text(
             text = Text,
             fontFamily = fontFamily,
