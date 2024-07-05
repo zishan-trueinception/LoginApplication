@@ -1,19 +1,14 @@
 package com.example.androidprac.androidpractice
 
-import android.annotation.SuppressLint
-import android.content.res.Resources.Theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,8 +26,8 @@ import androidx.compose.ui.unit.sp
 enum class Buttoncolor {
     PRIMARY,
     SECONDARY
-}
 
+}
 @Composable
 fun MainScreen() {
     Row(
@@ -44,7 +39,7 @@ fun MainScreen() {
             text = "Button",
             onClick = {},
             style = TextStyle(fontSize = 16.sp, color = Color.Black),
-            color = Buttoncolor.PRIMARY
+            color = Buttoncolor.PRIMARY,
         )
     }
 }
@@ -52,14 +47,18 @@ fun MainScreen() {
 // Reusable Button Component Function with default values
 @Composable
 fun ButtonComp(
-    color: Buttoncolor = Buttoncolor.PRIMARY,
     text: String,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
+    enabled:Boolean = true,
+    color: Buttoncolor = Buttoncolor.SECONDARY,
     fontSize: TextUnit = 16.sp,
     fontWeight: FontWeight = FontWeight.Normal,
+    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
+    modifier: Modifier = Modifier,
     shape: RoundedCornerShape = RoundedCornerShape(16.dp),
     style: TextStyle = TextStyle(fontSize = 16.sp, color = Color.Black),
+    IconStart: @Composable (() -> Unit)? = null,
+    IconEnd: @Composable (() -> Unit)? = null,
 
     ) {
 
@@ -69,9 +68,10 @@ fun ButtonComp(
         modifier = modifier
             .width(147.dp)
             .height(48.dp),
+        enabled = true,
         shape = shape,
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (color == Buttoncolor.PRIMARY) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary,
+            containerColor = if (color == Buttoncolor.SECONDARY) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary,
             contentColor = if (color == Buttoncolor.PRIMARY) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.primary
         )
     ) {
@@ -79,13 +79,15 @@ fun ButtonComp(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Image(imageVector = Icons.Default.KeyboardArrowLeft, contentDescription = "Arrowleft")
+            if (IconStart != null) {
+                IconStart()
+            }
             Text(
-                text = text,
-                fontSize = fontSize,
-                style = TextStyle(color = Color.White)
+                text = text, style = TextStyle(Color.White)
             )
-            Image(imageVector = Icons.Default.KeyboardArrowRight, contentDescription = "Arrowright")
+            if (IconEnd !=null){
+                IconEnd()
+            }
         }
     }
 }
