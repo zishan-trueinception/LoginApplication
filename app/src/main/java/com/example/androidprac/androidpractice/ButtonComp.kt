@@ -25,7 +25,6 @@ import androidx.compose.ui.unit.sp
 enum class Buttoncolor {
     PRIMARY,
     SECONDARY
-
 }
 
 @Composable
