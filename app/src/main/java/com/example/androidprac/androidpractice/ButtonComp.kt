@@ -1,6 +1,5 @@
 package com.example.androidprac.androidpractice
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -28,6 +27,7 @@ enum class Buttoncolor {
     SECONDARY
 
 }
+
 @Composable
 fun MainScreen() {
     Row(
@@ -49,7 +49,7 @@ fun MainScreen() {
 fun ButtonComp(
     text: String,
     onClick: () -> Unit,
-    enabled:Boolean = true,
+    enabled: Boolean = true,
     color: Buttoncolor = Buttoncolor.SECONDARY,
     fontSize: TextUnit = 16.sp,
     fontWeight: FontWeight = FontWeight.Normal,
@@ -85,7 +85,7 @@ fun ButtonComp(
             Text(
                 text = text, style = TextStyle(Color.White)
             )
-            if (IconEnd !=null){
+            if (IconEnd != null) {
                 IconEnd()
             }
         }
