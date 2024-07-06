@@ -152,7 +152,8 @@ fun Screen() {
                             }
                         }
                     )
-                    HorizontalDivider() // Divider between each ListItem
+                    // Divider between each ListItem
+                    HorizontalDivider()
                 }
             }
         }
