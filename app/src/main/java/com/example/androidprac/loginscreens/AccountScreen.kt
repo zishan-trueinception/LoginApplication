@@ -36,8 +36,6 @@ fun Account() {
         mutableSetOf("")
     }
 
-    var checked by remember { mutableStateOf(true) }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
