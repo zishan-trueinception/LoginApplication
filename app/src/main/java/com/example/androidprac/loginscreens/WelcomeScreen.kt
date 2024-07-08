@@ -25,10 +25,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidprac.R
-
+@Preview(showBackground = true)
 @Composable
 fun Welcome() {
     Column(
@@ -123,7 +124,7 @@ fun Welcome() {
 
         }
         Spacer(modifier = Modifier.size(22.dp))
-        Text(text = "OR", modifier = Modifier.padding(horizontal = 143.dp))
+        Text(text = "OR", modifier = Modifier.align(Alignment.CenterHorizontally))
         Spacer(modifier = Modifier.size(22.dp))
         Button(
             onClick = { },
