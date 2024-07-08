@@ -34,11 +34,9 @@ import com.example.androidprac.R
 
 @Composable
 fun Login() {
-    val input = remember {
-        mutableSetOf("")
-    }
 
     var checked by remember { mutableStateOf(true) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()

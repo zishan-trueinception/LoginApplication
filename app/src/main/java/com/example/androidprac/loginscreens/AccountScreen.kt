@@ -32,9 +32,6 @@ import com.example.androidprac.R
 
 @Composable
 fun Account() {
-    val input = remember {
-        mutableSetOf("")
-    }
 
     Column(
         modifier = Modifier
