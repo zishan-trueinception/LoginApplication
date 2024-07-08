@@ -51,18 +51,21 @@ fun Welcome() {
             Image(painter = painterResource(id = R.drawable.shape),
                 contentDescription = "", contentScale = ContentScale.FillBounds,
                 modifier = Modifier.size(150.dp)
-                    .offset(x = 225.dp, y = 60.dp))
+                    .offset(x = 225.dp, y = 60.dp)
+                    .shadow(elevation = 65.dp))
             Image(
                 painter = painterResource(id = R.drawable.s),
                 contentDescription = "splash1", modifier = Modifier
                     .size(250.dp)
                     .offset(x = 30.dp, y = 100.dp)
+                    .shadow(elevation = 65.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.ss),
                 contentDescription = "splash2", modifier = Modifier
                     .size(160.dp)
                     .offset(x = 165.dp, y = 220.dp)
+                    .shadow(elevation = 50.dp)
             )
         }
         Spacer(modifier = Modifier.size(20.dp))
