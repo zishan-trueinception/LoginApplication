@@ -48,10 +48,10 @@ fun Welcome() {
         )
         Box(modifier = Modifier.size(420.dp))
         {
-            Image(painter = painterResource(id = R.drawable.ssss),
+            Image(painter = painterResource(id = R.drawable.shape),
                 contentDescription = "", contentScale = ContentScale.FillBounds,
                 modifier = Modifier.size(150.dp)
-                    .offset(x = 150.dp, y = 50.dp))
+                    .offset(x = 225.dp, y = 60.dp))
             Image(
                 painter = painterResource(id = R.drawable.s),
                 contentDescription = "splash1", modifier = Modifier

@@ -23,9 +23,9 @@ class MainActivity : ComponentActivity() {
             AndroidPracTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column(Modifier.padding(innerPadding)) {
-                        //Welcome()
+                        Welcome()
                         //Login()
-                        Account()
+                        //Account()
                     }
                 }
             }
