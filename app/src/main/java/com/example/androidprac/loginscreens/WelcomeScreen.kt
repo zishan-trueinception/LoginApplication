@@ -120,7 +120,11 @@ fun WelcomePage(navController: NavController) {
                 onClick = { navController.navigate(AppScreen.login) },
                 Modifier
                     .fillMaxWidth()
-                    .size(48.dp)
+                    .size(48.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF6366F1),
+                    contentColor = Color.White
+                )
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
