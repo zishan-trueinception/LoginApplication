@@ -193,7 +193,6 @@ fun LoginPage(navController: NavController) {
                     Text(text = "Remember Me")
                 }
             }
-
             Column(
                 Modifier
                     .fillMaxWidth(),

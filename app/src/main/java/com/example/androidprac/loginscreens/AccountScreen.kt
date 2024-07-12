@@ -89,7 +89,7 @@ fun AccountPage(navController: NavController) {
                                 color = Color.Black,
                             ),
                             modifier = Modifier
-                                .width(38.dp)
+                                .width(66.dp)
                                 .height(20.dp)
                         )
                         Text(
@@ -139,7 +139,6 @@ fun AccountPage(navController: NavController) {
                             ),
                             modifier = Modifier
                                 .width(38.dp)
-                                .height(20.dp)
                         )
                         Text(
                             text = "*",
