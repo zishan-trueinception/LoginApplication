@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.androidprac.androidpractice.CustomInputField
-import com.example.androidprac.androidpractice.MyCustomInputField
 import com.example.androidprac.loginscreens.NavController
 import com.example.androidprac.ui.theme.AndroidPracTheme
 
