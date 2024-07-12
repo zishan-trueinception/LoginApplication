@@ -68,7 +68,7 @@ fun WelcomePage(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .width(398.dp)
+                .fillMaxWidth()
                 .height(256.dp)
                 .padding(
                     start = Variables.xSm,
@@ -204,7 +204,8 @@ fun WelcomePage(navController: NavController) {
                     IconEnd = {
                         Image(
                             painter = painterResource(id = R.drawable.righthdicon),
-                            contentDescription = "RightIcon", modifier = Modifier
+                            contentDescription = "RightIcon",
+                                modifier = Modifier
                                 .padding(1.dp)
                                 .width(20.dp)
                                 .height(20.dp)
