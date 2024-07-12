@@ -38,7 +38,8 @@ import com.example.androidprac.R
 fun AccountPage(navController: NavController) {
     Column(
         Modifier
-            .width(398.dp)
+            //.width(398.dp)
+            .fillMaxWidth()
             .padding(15.dp), verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -229,7 +230,7 @@ fun AccountPage(navController: NavController) {
 
             Column(
                 Modifier
-                    .width(398.dp),
+                    .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {

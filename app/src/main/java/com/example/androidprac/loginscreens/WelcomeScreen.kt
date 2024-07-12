@@ -32,6 +32,7 @@ fun WelcomePage(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .fillMaxWidth()
             .padding(horizontal = 15.dp)
     ) {
         Text(
@@ -52,7 +53,7 @@ fun WelcomePage(navController: NavController) {
         }
         Spacer(modifier = Modifier.size(80.dp))
         Column(
-            verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.CenterVertically),
+            verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()

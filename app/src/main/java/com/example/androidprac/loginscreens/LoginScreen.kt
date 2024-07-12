@@ -44,7 +44,8 @@ fun LoginPage(navController: NavController) {
     var checked by remember { mutableStateOf(true) }
     Column(
         Modifier
-            .width(398.dp)
+            //.width(398.dp)
+            .fillMaxWidth()
             .padding(15.dp), verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     )
@@ -53,7 +54,7 @@ fun LoginPage(navController: NavController) {
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .width(398.dp)
+                .fillMaxWidth()
                 .fillMaxHeight()
         ) {
             Column(
