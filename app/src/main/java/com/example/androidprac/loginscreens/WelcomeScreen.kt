@@ -29,7 +29,7 @@ import androidx.navigation.NavController
 import com.example.androidprac.R
 import com.example.androidprac.androidpractice.ButtonComp
 
-
+// object for Colors and Dimensions
 object Variables {
     val xSm: Dp = 8.dp
     val Grey200: Color = Color(0xFFEEEEEE)
@@ -39,18 +39,23 @@ object Variables {
     val textIconographyDarkActive: Color = Color(0xDEFFFFFF)
 }
 
+// Welcome Page
 @Composable
 fun WelcomePage(navController: NavController) {
     Column(
-        verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth()
-            //.height(714.dp)
             .fillMaxSize()
             .padding(15.dp),
-    ) {
+        verticalArrangement = Arrangement.SpaceBetween,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    )
+    {
+        // Text for APP Name
         Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(32.dp),
             text = "Hey, Hello 👋🏻 ",
             style = TextStyle(
                 fontSize = 24.sp,
@@ -59,14 +64,10 @@ fun WelcomePage(navController: NavController) {
                 fontWeight = FontWeight(700),
                 color = Color(0x99000000),
             ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(32.dp)
         )
+        // Image for Splash Screen
         Image(painter = painterResource(id = R.drawable.splash), contentDescription = "SplashPic")
         Column(
-            verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
-            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(256.dp)
@@ -75,15 +76,11 @@ fun WelcomePage(navController: NavController) {
                     top = Variables.xSm,
                     end = Variables.xSm,
                     bottom = Variables.xSm
-                )
-
+                ),
+            verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(
-                    Variables.xSm,
-                    Alignment.CenterHorizontally
-                ),
-                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp)
@@ -96,20 +93,28 @@ fun WelcomePage(navController: NavController) {
                         top = Variables.xSm,
                         end = 32.dp,
                         bottom = Variables.xSm
-                    )
-            ) {
+                    ),
+                horizontalArrangement = Arrangement.spacedBy(
+                    Variables.xSm,
+                    Alignment.CenterHorizontally
+                ),
+                verticalAlignment = Alignment.CenterVertically,
+            )
+            {
+                // Custom Button for Login With Google
                 ButtonComp(
-                    onClick = { },
                     text = "Continue With Google",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    onClick = { },
                     style = TextStyle(
                         fontSize = 16.sp,
                         lineHeight = 24.sp,
                         fontFamily = FontFamily.SansSerif,
                         fontWeight = FontWeight(600),
                         color = Variables.Grey900,
-                    ), modifier = Modifier
-                        .fillMaxWidth()
-                        .height(24.dp),
+                    ),
                     colors = ButtonDefaults.buttonColors(Variables.Grey200),
                     IconStart = {
                         Image(
@@ -118,7 +123,6 @@ fun WelcomePage(navController: NavController) {
                         )
                     }
                 )
-
             }
             Row(
                 horizontalArrangement = Arrangement.spacedBy(
@@ -140,6 +144,7 @@ fun WelcomePage(navController: NavController) {
                         bottom = Variables.xSm
                     )
             ) {
+                // Custom Button for Login With Github
                 ButtonComp(
                     onClick = { },
                     text = "Continue With Github",
@@ -161,6 +166,7 @@ fun WelcomePage(navController: NavController) {
                     }
                 )
             }
+            // Text for OR
             Text(
                 text = "OR",
                 style = TextStyle(
@@ -181,13 +187,9 @@ fun WelcomePage(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp)
-                    .background(
-                        color = Variables.primary500,
-                        shape = RoundedCornerShape(size = 999.dp)
-                    )
-                    .padding(start = 20.dp, top = 12.dp, end = 20.dp, bottom = 12.dp)
             ) {
-                ButtonComp(onClick = { navController.navigate(AppScreen.login)},
+                // Custom Button for Login With Email
+                ButtonComp(onClick = { navController.navigate(AppScreen.login) },
                     text = "Continue With Email",
                     style = TextStyle(
                         fontSize = 16.sp,
@@ -199,13 +201,15 @@ fun WelcomePage(navController: NavController) {
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(24.dp),
+                        .height(48.dp),
                     colors = ButtonDefaults.buttonColors(Variables.primary500),
+                    shape = RoundedCornerShape(999.dp),
                     IconEnd = {
+                        // Right Icon For Custom Button
                         Image(
                             painter = painterResource(id = R.drawable.righthdicon),
                             contentDescription = "RightIcon",
-                                modifier = Modifier
+                            modifier = Modifier
                                 .padding(1.dp)
                                 .width(20.dp)
                                 .height(20.dp)
@@ -213,7 +217,6 @@ fun WelcomePage(navController: NavController) {
                     }
                 )
             }
-
         }
     }
 }

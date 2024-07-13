@@ -9,12 +9,11 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -26,15 +25,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.androidprac.R
+import com.example.androidprac.androidpractice.ButtonComp
 
 @Composable
+// Account Page
 fun AccountPage(navController: NavController) {
     Column(
         Modifier
@@ -58,8 +58,8 @@ fun AccountPage(navController: NavController) {
                 verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
                 horizontalAlignment = Alignment.Start,
             ) {
+                // Text for APP Name
                 Text(
-
                     text = "Create Account",
                     Modifier
                         .fillMaxWidth(),
@@ -80,6 +80,7 @@ fun AccountPage(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start),
                         verticalAlignment = Alignment.Top,
                     ) {
+                        // Text for Full Name
                         Text(
                             text = "Full Name ",
                             style = TextStyle(
@@ -93,6 +94,7 @@ fun AccountPage(navController: NavController) {
                                 .width(66.dp)
                                 .height(20.dp)
                         )
+                        // Text for *
                         Text(
                             text = "*",
                             style = TextStyle(
@@ -104,6 +106,7 @@ fun AccountPage(navController: NavController) {
                             )
                         )
                     }
+                    // Text Field for Full Name
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         value = "",
                         onValueChange = {},
@@ -111,6 +114,7 @@ fun AccountPage(navController: NavController) {
                             Text(text = "john Doe")
                         },
                         leadingIcon = {
+                            // Account Icon
                             Icon(
                                 imageVector = Icons.Default.AccountCircle,
                                 contentDescription = "AccountIcon"
@@ -129,6 +133,7 @@ fun AccountPage(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start),
                         verticalAlignment = Alignment.Top,
                     ) {
+                        // Text for Email
                         Text(
                             text = "Email ",
                             style = TextStyle(
@@ -141,6 +146,7 @@ fun AccountPage(navController: NavController) {
                             modifier = Modifier
                                 .width(38.dp)
                         )
+                        // Text for *
                         Text(
                             text = "*",
                             style = TextStyle(
@@ -152,6 +158,7 @@ fun AccountPage(navController: NavController) {
                             )
                         )
                     }
+                    // Text Field for Email
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         value = "",
                         onValueChange = {},
@@ -176,6 +183,7 @@ fun AccountPage(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start),
                         verticalAlignment = Alignment.Top,
                     ) {
+                        // Text for Password
                         Text(
                             text = "Password ",
                             style = TextStyle(
@@ -189,6 +197,7 @@ fun AccountPage(navController: NavController) {
                                 .width(66.dp)
                                 .height(20.dp)
                         )
+                        // Text for *
                         Text(
                             text = "*",
                             style = TextStyle(
@@ -208,6 +217,7 @@ fun AccountPage(navController: NavController) {
                         verticalAlignment = Alignment.CenterVertically,
                     )
                     {
+                        // Text Field for Password
                         OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                             value = "",
                             onValueChange = {},
@@ -215,6 +225,7 @@ fun AccountPage(navController: NavController) {
                                 Text(text = "********")
                             },
                             leadingIcon = {
+                                // Password Icon
                                 Image(
                                     painter = painterResource(id = R.drawable.password),
                                     contentDescription = "PassIcon",
@@ -234,32 +245,44 @@ fun AccountPage(navController: NavController) {
                 verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Button(
-                    onClick = { },
-                    Modifier
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(
+                        8.dp,
+                        Alignment.CenterHorizontally
+                    ),
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
                         .fillMaxWidth()
-                        .size(48.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF6366F1),
-                        contentColor = Color.White
-                    )
+                        .height(48.dp)
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = "SIGN UP",
-                            fontFamily = FontFamily.SansSerif,
+                    // Custom Button for Continue With Email
+                    ButtonComp(onClick = { navController.navigate(AppScreen.login) },
+                        text = "Continue With Email",
+                        style = TextStyle(
                             fontSize = 16.sp,
-                            fontStyle = FontStyle.Normal,
-                            fontWeight = FontWeight.Medium
-                        )
-                        Image(
-                            painter = painterResource(id = R.drawable.righthdicon),
-                            contentDescription = "githubIcon",
-                            modifier = Modifier
-                                .size(28.dp)
-                                .padding(4.dp)
-                        )
-                    }
+                            lineHeight = 24.sp,
+                            fontFamily = FontFamily.SansSerif,
+                            fontWeight = FontWeight(400),
+                            color = Variables.textIconographyDarkActive,
+                            textAlign = TextAlign.Center,
+                        ),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        colors = ButtonDefaults.buttonColors(Variables.primary500),
+                        shape = RoundedCornerShape(999.dp),
+                        IconEnd = {
+                            // Right Icon
+                            Image(
+                                painter = painterResource(id = R.drawable.righthdicon),
+                                contentDescription = "RightIcon",
+                                modifier = Modifier
+                                    .padding(1.dp)
+                                    .width(20.dp)
+                                    .height(20.dp)
+                            )
+                        }
+                    )
                 }
                 Row(
                     Modifier
@@ -267,7 +290,9 @@ fun AccountPage(navController: NavController) {
                     horizontalArrangement = Arrangement.spacedBy(0.dp, Alignment.Start),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
+                    // Text for New Here
                     Text(text = "New here? Create an account.")
+                    // Clickable Text for Log in
                     Text(
                         color = Color.Blue,
                         text = "Log in",

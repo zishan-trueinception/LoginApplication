@@ -10,11 +10,10 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
@@ -31,24 +30,29 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.androidprac.R
+import com.example.androidprac.androidpractice.ButtonComp
 
 @Composable
+// Login Page
 fun LoginPage(navController: NavController) {
+
+    //Checkbox for Remember Me
     var checked by remember { mutableStateOf(true) }
+
+    //Main Column
     Column(
         Modifier
-            //.width(398.dp)
             .fillMaxWidth()
             .padding(15.dp), verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     )
+    //Column for Screen
     {
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
@@ -63,6 +67,7 @@ fun LoginPage(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
+                // Text for APP Name
                 Text(
                     text = "Hey, Hello 👋🏻 ",
                     style = TextStyle(
@@ -85,6 +90,7 @@ fun LoginPage(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start),
                         verticalAlignment = Alignment.Top,
                     ) {
+                        // Text for Email
                         Text(
                             text = "Email ",
                             style = TextStyle(
@@ -98,6 +104,7 @@ fun LoginPage(navController: NavController) {
                                 .width(38.dp)
                                 .height(20.dp)
                         )
+                        // Text for *
                         Text(
                             text = "*",
                             style = TextStyle(
@@ -109,6 +116,7 @@ fun LoginPage(navController: NavController) {
                             )
                         )
                     }
+                    // Email Field
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         value = "",
                         onValueChange = {},
@@ -133,6 +141,7 @@ fun LoginPage(navController: NavController) {
                         horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start),
                         verticalAlignment = Alignment.Top,
                     ) {
+                        // Text for Password
                         Text(
                             text = "Password ",
                             style = TextStyle(
@@ -146,6 +155,7 @@ fun LoginPage(navController: NavController) {
                                 .width(66.dp)
                                 .height(20.dp)
                         )
+                        // Text for *
                         Text(
                             text = "*",
                             style = TextStyle(
@@ -165,6 +175,7 @@ fun LoginPage(navController: NavController) {
                         verticalAlignment = Alignment.CenterVertically,
                     )
                     {
+                        // Password Field
                         OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                             value = "",
                             onValueChange = {},
@@ -172,6 +183,7 @@ fun LoginPage(navController: NavController) {
                                 Text(text = "********")
                             },
                             leadingIcon = {
+                                // Password Icon
                                 Image(
                                     painter = painterResource(id = R.drawable.password),
                                     contentDescription = "PassIcon",
@@ -187,6 +199,7 @@ fun LoginPage(navController: NavController) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.Start),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
+                    // Checkbox for Remember Me
                     Checkbox(
                         checked = checked,
                         onCheckedChange = { checked = it }
@@ -199,33 +212,46 @@ fun LoginPage(navController: NavController) {
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
                 horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Button(
-                    onClick = { },
-                    Modifier
+            )
+            {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(
+                        8.dp,
+                        Alignment.CenterHorizontally
+                    ),
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
                         .fillMaxWidth()
-                        .size(48.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF6366F1),
-                        contentColor = Color.White
-                    )
+                        .height(48.dp)
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = "LOG IN",
-                            fontFamily = FontFamily.SansSerif,
+                    // Custom Button For Login
+                    ButtonComp(onClick = { navController.navigate(AppScreen.login) },
+                        text = "LOG IN",
+                        style = TextStyle(
                             fontSize = 16.sp,
-                            fontStyle = FontStyle.Normal,
-                            fontWeight = FontWeight.Medium
-                        )
-                        Image(
-                            painter = painterResource(id = R.drawable.righthdicon),
-                            contentDescription = "githubIcon",
-                            modifier = Modifier
-                                .size(28.dp)
-                                .padding(4.dp)
-                        )
-                    }
+                            lineHeight = 24.sp,
+                            fontFamily = FontFamily.SansSerif,
+                            fontWeight = FontWeight(400),
+                            color = Variables.textIconographyDarkActive,
+                            textAlign = TextAlign.Center,
+                        ),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        colors = ButtonDefaults.buttonColors(Variables.primary500),
+                        shape = RoundedCornerShape(999.dp),
+                        IconEnd = {
+                            // Right Icon For Login Button
+                            Image(
+                                painter = painterResource(id = R.drawable.righthdicon),
+                                contentDescription = "RightIcon",
+                                modifier = Modifier
+                                    .padding(1.dp)
+                                    .width(20.dp)
+                                    .height(20.dp)
+                            )
+                        }
+                    )
                 }
                 Row(
                     Modifier
@@ -233,7 +259,9 @@ fun LoginPage(navController: NavController) {
                     horizontalArrangement = Arrangement.spacedBy(0.dp, Alignment.Start),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
+                    // Text for New Here
                     Text(text = "New here? Create an account.")
+                    //Clickable Text for Sign Up
                     Text(
                         text = "Sign up",
                         textAlign = TextAlign.Center,
@@ -243,6 +271,7 @@ fun LoginPage(navController: NavController) {
                             .clickable { navController.navigate(AppScreen.account) }
                     )
                 }
+
             }
         }
     }
