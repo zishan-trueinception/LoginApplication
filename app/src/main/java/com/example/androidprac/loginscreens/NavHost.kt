@@ -10,8 +10,8 @@ fun NavController() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = AppScreen.welcome) {
         composable<AppScreen.welcome> { WelcomePage(navController) }
-        composable<AppScreen.login> { LoginPage(navController) }
-        composable<AppScreen.account> { AccountPage(navController) }
-        composable<AppScreen.homescreen> { HomeScreen(navController) }
+        composable<AppScreen.login> { LoginScreen(navController) }
+        composable<AppScreen.account> { AccountScreen(navController) }
+        composable<AppScreen.home> { HomePage(navController) }
     }
 }

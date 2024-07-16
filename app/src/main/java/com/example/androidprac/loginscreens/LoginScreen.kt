@@ -40,7 +40,7 @@ import com.example.androidprac.androidpractice.ButtonComp
 
 @Composable
 // Login Page
-fun LoginPage(navController: NavController) {
+fun LoginScreen(navController: NavController) {
 
     //Checkbox for Remember Me
     var checked by remember { mutableStateOf(true) }
@@ -49,7 +49,7 @@ fun LoginPage(navController: NavController) {
     Column(
         Modifier
             .fillMaxWidth()
-            .padding(15.dp), verticalArrangement = Arrangement.SpaceBetween,
+            .padding(horizontal = 15.dp, vertical = 50.dp), verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     //Column for Screen
@@ -225,7 +225,7 @@ fun LoginPage(navController: NavController) {
                         .height(48.dp)
                 ) {
                     // Custom Button For Login
-                    ButtonComp(onClick = { navController.navigate(AppScreen.login) },
+                    ButtonComp(onClick = { navController.navigate(AppScreen.home) },
                         text = "LOG IN",
                         style = TextStyle(
                             fontSize = 16.sp,
@@ -255,7 +255,8 @@ fun LoginPage(navController: NavController) {
                 }
                 Row(
                     Modifier
-                        .width(291.dp),
+                        .width(291.dp)
+                        .align(Alignment.CenterHorizontally),
                     horizontalArrangement = Arrangement.spacedBy(0.dp, Alignment.Start),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {

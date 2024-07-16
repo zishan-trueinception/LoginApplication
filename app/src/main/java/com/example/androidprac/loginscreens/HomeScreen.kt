@@ -1,5 +1,8 @@
+
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -45,7 +48,7 @@ object Variables {
 
 
 @Composable
-fun HomePage() {
+fun HomeScreen() {
     LazyColumn {
         item {
             Column(
@@ -117,21 +120,17 @@ fun HomePage() {
                             .fillMaxWidth()
                             .height(939.66534.dp)
                     ) {
-                        Row(
+                        Column(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(32.dp)
+                                .height(30.dp)
                                 .padding(
                                     start = Variables.xSm,
                                     top = Variables.xxSm,
-                                    end = Variables.xSm,
-                                    bottom = Variables.xxSm
+                                    //end = Variables.xSm,
+                                    //bottom = Variables.xxSm
                                 ),
-                            horizontalArrangement = Arrangement.spacedBy(
-                                Variables.xSm,
-                                Alignment.Start
-                            ),
-                            verticalAlignment = Alignment.CenterVertically,
+
                         ) {
                             Text(
                                 text = "Top Categories",
@@ -143,7 +142,19 @@ fun HomePage() {
                                     color = Variables.textActive,
                                 )
                             )
+                            Row (
+                                horizontalArrangement = Arrangement.spacedBy(Variables.xSm, Alignment.Start),
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier
+                                    .border(width = 1.dp, color = Variables.ShadesOfGray400)
+                                    .fillMaxWidth()
+                                    .height(2.dp)
+                            )
+                            //.padding(start = Variables.xSm, end = Variables.xSm, bottom = Variables.xxSm))
+                            {}
+
                         }
+
                         LazyRow {
                             item {
                                 CardComponent(
@@ -190,23 +201,18 @@ fun HomePage() {
                                 .fillMaxWidth()
                                 .height(939.66534.dp)
                         ) {
-                            Row(
-                                horizontalArrangement = Arrangement.spacedBy(
-                                    Variables.xSm,
-                                    Alignment.Start
-                                ),
-                                verticalAlignment = Alignment.CenterVertically,
+                            Column(
                                 modifier = Modifier
-                                    //.border(width = 1.dp, color = Color(0xFF9E9E9E))
                                     .fillMaxWidth()
-                                    .height(32.dp)
+                                    .height(30.dp)
                                     .padding(
                                         start = Variables.xSm,
                                         top = Variables.xxSm,
-                                        end = Variables.xSm,
-                                        bottom = Variables.xxSm
-                                    )
-                            ) {
+                                        //end = Variables.xSm,
+                                        //bottom = Variables.xxSm
+                                    ),
+
+                                ) {
                                 Text(
                                     text = "Top Products",
                                     style = TextStyle(
@@ -217,6 +223,17 @@ fun HomePage() {
                                         color = Variables.textActive,
                                     )
                                 )
+                                Row (
+                                    horizontalArrangement = Arrangement.spacedBy(Variables.xSm, Alignment.Start),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier
+                                        .border(width = 1.dp, color = Variables.ShadesOfGray400)
+                                        .fillMaxWidth()
+                                        .height(2.dp)
+                                )
+                                //.padding(start = Variables.xSm, end = Variables.xSm, bottom = Variables.xxSm))
+                                {}
+
                             }
                             LazyRow {
                                 item {

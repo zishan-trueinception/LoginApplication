@@ -1,6 +1,6 @@
 package com.example.androidprac.loginscreens
 
-import HomePage
+import HomeScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -44,7 +44,7 @@ import com.example.androidprac.R
 //)
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomePage(navController: NavController) {
     val selected = remember {
         mutableStateOf(false)
     }
@@ -102,7 +102,7 @@ fun HomeScreen(navController: NavController) {
         }
     ) { innerPadding ->
         Column(Modifier.padding(innerPadding)) {
-            HomePage()
+            HomeScreen()
         }
     }
 }

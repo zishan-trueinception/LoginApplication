@@ -35,12 +35,11 @@ import com.example.androidprac.androidpractice.ButtonComp
 
 @Composable
 // Account Page
-fun AccountPage(navController: NavController) {
+fun AccountScreen(navController: NavController) {
     Column(
         Modifier
-            //.width(398.dp)
             .fillMaxWidth()
-            .padding(15.dp), verticalArrangement = Arrangement.SpaceBetween,
+            .padding(horizontal = 15.dp, vertical = 50.dp), verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 

@@ -14,6 +14,6 @@ sealed class AppScreen {
     data object account : AppScreen()
 
     @Serializable
-    data object homescreen : AppScreen()
+    data object home: AppScreen()
 
 }
