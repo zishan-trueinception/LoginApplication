@@ -12,5 +12,6 @@ fun NavController() {
         composable<AppScreen.welcome> { WelcomePage(navController) }
         composable<AppScreen.login> { LoginPage(navController) }
         composable<AppScreen.account> { AccountPage(navController) }
+        composable<AppScreen.homescreen> { HomeScreen(navController) }
     }
 }

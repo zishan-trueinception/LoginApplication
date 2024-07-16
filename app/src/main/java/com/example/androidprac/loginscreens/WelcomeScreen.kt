@@ -32,6 +32,7 @@ import com.example.androidprac.androidpractice.ButtonComp
 // object for Colors and Dimensions
 object Variables {
     val xSm: Dp = 8.dp
+    val sm: Dp = 12.dp
     val Grey200: Color = Color(0xFFEEEEEE)
     val Grey900: Color = Color(0xFF212121)
     val textInactive: Color = Color(0x99000000)

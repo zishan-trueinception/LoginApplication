@@ -14,8 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.androidprac.R
 
 //data class BottomNavItem(
@@ -42,13 +44,15 @@ import com.example.androidprac.R
 //)
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     val selected = remember {
         mutableStateOf(false)
     }
     Scaffold(
         bottomBar = {
-            NavigationBar {
+            NavigationBar(
+                containerColor = Color.White
+            ) {
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
                         painter = painterResource(id = R.drawable.home),
@@ -61,7 +65,7 @@ fun HomeScreen() {
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
                         painter = painterResource(id = R.drawable.offer),
-                        contentDescription = "offerIcon",modifier = Modifier
+                        contentDescription = "offerIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
                             .height(28.dp)
@@ -70,7 +74,7 @@ fun HomeScreen() {
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
                         painter = painterResource(id = R.drawable.categoryy),
-                        contentDescription = "CategoryIcon",modifier = Modifier
+                        contentDescription = "CategoryIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
                             .height(28.dp)
@@ -79,7 +83,7 @@ fun HomeScreen() {
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
                         painter = painterResource(id = R.drawable.phonecall),
-                        contentDescription = "CallIcon",modifier = Modifier
+                        contentDescription = "CallIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
                             .height(28.dp)
@@ -88,7 +92,7 @@ fun HomeScreen() {
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
                         painter = painterResource(id = R.drawable.profile),
-                        contentDescription = "ProfileIcon",modifier = Modifier
+                        contentDescription = "ProfileIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
                             .height(28.dp)

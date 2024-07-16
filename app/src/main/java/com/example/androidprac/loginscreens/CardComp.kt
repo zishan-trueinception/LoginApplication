@@ -1,7 +1,8 @@
-
+package com.example.androidprac.loginscreens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -27,9 +28,12 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun CardComponent(
     text: String,
-    imageResId: Int
+    imageResId: Int,
+    onClick: () -> Unit
 ) {
     Surface(
+        modifier = Modifier
+            .clickable(onClick = onClick)
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(Variables.xSm, Alignment.Top),
@@ -62,7 +66,6 @@ fun CardComponent(
                 ),
                 modifier = Modifier
                     .width(89.6.dp)
-                //.height(16.dp)
             )
         }
     }

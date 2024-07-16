@@ -1,16 +1,19 @@
 package com.example.androidprac.loginscreens
 
-import androidx.navigation.compose.rememberNavController
 import kotlinx.serialization.Serializable
 
-sealed class AppScreen{
+sealed class AppScreen {
 
     @Serializable
-    object welcome:AppScreen()
+    data object welcome : AppScreen()
 
     @Serializable
-    object login:AppScreen()
+    data object login : AppScreen()
 
     @Serializable
-    object account:AppScreen()
+    data object account : AppScreen()
+
+    @Serializable
+    data object homescreen : AppScreen()
+
 }
