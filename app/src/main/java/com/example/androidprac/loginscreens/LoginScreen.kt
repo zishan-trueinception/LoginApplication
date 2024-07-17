@@ -49,7 +49,8 @@ fun LoginScreen(navController: NavController) {
     Column(
         Modifier
             .fillMaxWidth()
-            .padding(horizontal = 15.dp, vertical = 50.dp), verticalArrangement = Arrangement.SpaceBetween,
+            .padding(horizontal = 15.dp, vertical = 50.dp),
+        verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     //Column for Screen
@@ -255,7 +256,6 @@ fun LoginScreen(navController: NavController) {
                 }
                 Row(
                     Modifier
-                        .width(291.dp)
                         .align(Alignment.CenterHorizontally),
                     horizontalArrangement = Arrangement.spacedBy(0.dp, Alignment.Start),
                     verticalAlignment = Alignment.CenterVertically,
@@ -272,7 +272,6 @@ fun LoginScreen(navController: NavController) {
                             .clickable { navController.navigate(AppScreen.account) }
                     )
                 }
-
             }
         }
     }

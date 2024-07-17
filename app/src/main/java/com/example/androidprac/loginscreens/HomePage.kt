@@ -20,29 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.androidprac.R
 
-//data class BottomNavItem(
-//    val title: String,
-//    val selectedIcon: ImageVector,
-//    val unselectedIcon: ImageVector,
-//)
-//val items = listOf(
-//    BottomNavItem(
-//        title = "Home",
-//        selectedIcon = Icons.Default.Home,
-//        unselectedIcon = Icons.Default.Home
-//    ),
-//    BottomNavItem(
-//        title = "Profile",
-//        selectedIcon = Icons.Default.Person,
-//        unselectedIcon = Icons.Default.Person
-//    ),
-//    BottomNavItem(
-//        title = "Settings",
-//        selectedIcon = Icons.Default.Settings,
-//        unselectedIcon = Icons.Default.Settings
-//    )
-//)
-
 @Composable
 fun HomePage(navController: NavController) {
     val selected = remember {

@@ -42,7 +42,6 @@ fun AccountScreen(navController: NavController) {
             .padding(horizontal = 15.dp, vertical = 50.dp), verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Column(
             Modifier
                 .fillMaxWidth()
@@ -121,7 +120,6 @@ fun AccountScreen(navController: NavController) {
                         }
                     )
                 }
-
                 Column(
                     Modifier
                         .fillMaxWidth(),
@@ -284,8 +282,8 @@ fun AccountScreen(navController: NavController) {
                     )
                 }
                 Row(
-                    Modifier
-                        .width(291.dp),
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally),
                     horizontalArrangement = Arrangement.spacedBy(0.dp, Alignment.Start),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {

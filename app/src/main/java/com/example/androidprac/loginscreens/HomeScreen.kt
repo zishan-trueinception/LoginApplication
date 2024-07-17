@@ -275,7 +275,6 @@ fun HomeScreen() {
                                     )
                                 }
                             }
-
                         }
                     }
                 }

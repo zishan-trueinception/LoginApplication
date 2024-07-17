@@ -16,14 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-//            AndroidPracTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Column(Modifier.padding(innerPadding)) {
-//                        NavController()
-//                    }
             NavController()
                 }
             }
         }
-//    }
-//}
