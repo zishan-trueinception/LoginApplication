@@ -30,7 +30,7 @@ object ProductCardColor {
     val textInactive: Color = Color(0x99000000)
 }
 
-
+// Define a composable function for the card
 @Composable
 fun ProductCardComp(
     title: String,

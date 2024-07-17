@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
-// Define a composable function for the card
+// Card Component
 @Composable
 fun CardComponent(
     text: String,

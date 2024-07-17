@@ -2,6 +2,8 @@ package com.example.androidprac.loginscreens
 
 import kotlinx.serialization.Serializable
 
+//sealed class AppScreen for navigation
+
 sealed class AppScreen {
 
     @Serializable
