@@ -45,32 +45,24 @@ object Variables {
     val textDisabled: Color = Color(0x61000000)
     val Green500: Color = Color(0xFF4CAF50)
 }
-
-
 @Composable
 fun HomeScreen() {
     LazyColumn {
         item {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxSize()
-            )
-            {
                 Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxSize()
-                        .background(Color.White)
-                        .padding(start = 4.dp, end = 4.dp),
-                    verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.Top),
+                    verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.Top),
                     horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .width(Variables.MobileView)
+                        .height(939.66534.dp)
+                        .padding(start = 16.dp , end = 16.dp)
                 ) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 8.dp, top = 2.dp, end = 8.dp, bottom = 0.dp),
-                        horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.Start),
+                            .height(72.dp)
+                            .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.Start),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         OutlinedTextField(
@@ -102,8 +94,8 @@ fun HomeScreen() {
                             painter = painterResource(id = R.drawable.avatar),
                             contentDescription = "AvatarIcon",
                             modifier = Modifier
-                                .width(60.dp)
-                                .height(60.dp)
+                                .width(32.dp)
+                                .height(32.dp)
                         )
                     }
                     Image(
@@ -278,7 +270,7 @@ fun HomeScreen() {
                         }
                     }
                 }
-            }
+
         }
     }
 }

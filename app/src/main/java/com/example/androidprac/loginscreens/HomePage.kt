@@ -22,9 +22,6 @@ import com.example.androidprac.R
 
 @Composable
 fun HomePage(navController: NavController) {
-    val selected = remember {
-        mutableStateOf(false)
-    }
     Scaffold(
         bottomBar = {
             NavigationBar(
