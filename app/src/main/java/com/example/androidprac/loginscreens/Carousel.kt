@@ -31,11 +31,11 @@ import kotlinx.coroutines.delay
 @Composable
 fun Carousel(modifier: Modifier = Modifier) {
     val images = listOf(
-        R.drawable.bannerfirst,
-        R.drawable.bannerseccond,
-        R.drawable.bannerthird,
-        R.drawable.bannerfourth,
-        R.drawable.bannerfifth
+        R.drawable.newbannerone,
+        R.drawable.newbannertwo,
+        R.drawable.newbannerreplace,
+        R.drawable.newbannerfourth,
+        R.drawable.newbannerfifth
     )
     val pagerState = rememberPagerState(pageCount = { images.size })
     LaunchedEffect(Unit) {
