@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,42 +30,39 @@ fun CardComponent(
     imageResId: Int,
     onClick: () -> Unit
 ) {
-    Surface(
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Variables.xSm, Alignment.Top),
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
+            .width(113.6.dp)
+            .height(145.60001.dp)
+            .background(color = Color.White, shape = RoundedCornerShape(size = Variables.xSm))
+            .padding(
+                start = Variables.sm,
+                top = Variables.xSm,
+                end = Variables.sm,
+                bottom = Variables.xSm
+            )
             .clickable(onClick = onClick)
-    ) {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(Variables.xSm, Alignment.Top),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .width(113.6.dp)
-                .height(145.60001.dp)
-                .background(color = Color.White, shape = RoundedCornerShape(size = Variables.xSm))
-                .padding(
-                    start = Variables.sm,
-                    top = Variables.xSm,
-                    end = Variables.sm,
-                    bottom = Variables.xSm
-                )
+
+    )
+    {
+        Image(
+            painter = painterResource(id = imageResId),
+            contentDescription = null,
         )
-        {
-            Image(
-                painter = painterResource(id = imageResId),
-                contentDescription = null
-            )
-            Text(
-                text = text,
-                style = TextStyle(
-                    fontSize = 12.sp,
-                    lineHeight = 16.sp,
-                    fontFamily = FontFamily.SansSerif,
-                    fontWeight = FontWeight(400),
-                    color = Variables.textInactive,
-                    textAlign = TextAlign.Center,
-                ),
-                modifier = Modifier
-                    .width(89.6.dp)
-            )
-        }
+        Text(
+            text = text,
+            style = TextStyle(
+                fontSize = 12.sp,
+                lineHeight = 16.sp,
+                fontFamily = FontFamily.SansSerif,
+                fontWeight = FontWeight(400),
+                color = Variables.textInactive,
+                textAlign = TextAlign.Center,
+            ),
+            modifier = Modifier
+                .width(89.6.dp)
+        )
     }
 }

@@ -7,15 +7,15 @@ import kotlinx.serialization.Serializable
 sealed class AppScreen {
 
     @Serializable
-    data object welcome : AppScreen()
+    data object Welcome : AppScreen()
 
     @Serializable
-    data object login : AppScreen()
+    data object Login : AppScreen()
 
     @Serializable
-    data object account : AppScreen()
+    data object Account : AppScreen()
 
     @Serializable
-    data object home: AppScreen()
+    data object Home : AppScreen()
 
 }

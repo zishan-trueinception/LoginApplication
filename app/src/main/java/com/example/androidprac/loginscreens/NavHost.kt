@@ -9,10 +9,10 @@ import androidx.navigation.compose.rememberNavController
 // NavHost is used to navigate between different screens
 fun NavController() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = AppScreen.welcome) {
-        composable<AppScreen.welcome> { WelcomePage(navController) }
-        composable<AppScreen.login> { LoginScreen(navController) }
-        composable<AppScreen.account> { AccountScreen(navController) }
-        composable<AppScreen.home> { HomePage(navController) }
+    NavHost(navController = navController, startDestination = AppScreen.Welcome) {
+        composable<AppScreen.Welcome> { WelcomePage(navController) }
+        composable<AppScreen.Login> { LoginScreen(navController) }
+        composable<AppScreen.Account> { AccountScreen(navController) }
+        composable<AppScreen.Home> { HomePage(navController) }
     }
 }

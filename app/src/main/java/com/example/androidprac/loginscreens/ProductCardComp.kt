@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
 // Define a data class for the card colors
 object ProductCardColor {
     val textDisabled: Color = Color(0x61000000)
@@ -45,8 +46,7 @@ fun ProductCardComp(
     onClick: () -> Unit,
 ) {
     Surface(
-        modifier = Modifier
-            .clickable(onClick = onClick)
+        color = Color.White
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.Top),
@@ -54,13 +54,14 @@ fun ProductCardComp(
             modifier = Modifier
                 .background(Color.White)
                 .width(224.dp)
-                .height(384.dp)
+                //.height(384.dp)
                 .padding(
                     start = 12.dp,
                     top = 8.dp,
                     end = 12.dp,
                     bottom = 8.dp
                 )
+                .clickable(onClick = onClick)
         ) {
             Text(
                 text = title,
@@ -70,11 +71,11 @@ fun ProductCardComp(
                     fontFamily = FontFamily.SansSerif,
                     fontWeight = FontWeight(400),
                     fontStyle = FontStyle.Italic,
-                    color = Variables.textInactive,
+                    color = ProductCardColor.textInactive,
                 ),
                 modifier = Modifier
                     .width(129.dp)
-                    .height(20.dp)
+                //.height(20.dp)
             )
             Image(
                 painter = painterResource(id = imageResId),
@@ -91,7 +92,7 @@ fun ProductCardComp(
                     color = Color.Black,
                 ), modifier = Modifier
                     .width(180.dp)
-                    .height(40.dp)
+                //.height(40.dp)
             )
             Text(
                 text = deliverytype,
@@ -104,7 +105,7 @@ fun ProductCardComp(
                     color = Color.Black
                 ), modifier = Modifier
                     .width(65.dp)
-                    .height(16.dp)
+                //.height(16.dp)
             )
             Row(
                 horizontalArrangement = Arrangement.spacedBy(
@@ -131,7 +132,7 @@ fun ProductCardComp(
                         color = Variables.textInactive,
                     ), modifier = Modifier
                         .width(69.dp)
-                        .height(16.dp)
+                    //.height(16.dp)
                 )
             }
             badges2?.let { painterResource(id = it) }?.let {
@@ -161,7 +162,7 @@ fun ProductCardComp(
                         textDecoration = TextDecoration.LineThrough,
                     ), modifier = Modifier
                         .width(58.dp)
-                        .height(16.dp)
+                    //.height(16.dp)
                 )
                 Text(
                     text = price,
@@ -173,7 +174,7 @@ fun ProductCardComp(
                         color = ProductCardColor.Green500,
                     ), modifier = Modifier
                         .width(68.dp)
-                        .height(20.dp)
+                    //.height(20.dp)
                 )
 
             }

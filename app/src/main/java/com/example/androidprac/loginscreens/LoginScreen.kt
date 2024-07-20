@@ -226,7 +226,7 @@ fun LoginScreen(navController: NavController) {
                         .height(48.dp)
                 ) {
                     // Custom Button For Login
-                    ButtonComp(onClick = { navController.navigate(AppScreen.home) },
+                    ButtonComp(onClick = { navController.navigate(AppScreen.Home) },
                         text = "LOG IN",
                         style = TextStyle(
                             fontSize = 16.sp,
@@ -269,7 +269,7 @@ fun LoginScreen(navController: NavController) {
                         color = Color.Blue,
                         modifier = Modifier
                             .width(66.dp)
-                            .clickable { navController.navigate(AppScreen.account) }
+                            .clickable { navController.navigate(AppScreen.Account) }
                     )
                 }
             }

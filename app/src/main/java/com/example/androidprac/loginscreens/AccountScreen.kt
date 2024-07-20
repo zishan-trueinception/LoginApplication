@@ -253,7 +253,7 @@ fun AccountScreen(navController: NavController) {
                         .height(48.dp)
                 ) {
                     // Custom Button for Continue With Email
-                    ButtonComp(onClick = { navController.navigate(AppScreen.login) },
+                    ButtonComp(onClick = { navController.navigate(AppScreen.Login) },
                         text = "Continue With Email",
                         style = TextStyle(
                             fontSize = 16.sp,
@@ -296,7 +296,7 @@ fun AccountScreen(navController: NavController) {
                         textAlign = TextAlign.Center,
                         modifier = Modifier
                             .width(66.dp)
-                            .clickable { navController.navigate(AppScreen.login) }
+                            .clickable { navController.navigate(AppScreen.Login) }
                     )
                 }
             }

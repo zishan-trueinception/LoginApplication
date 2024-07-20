@@ -42,153 +42,153 @@ object Variables {
 // Welcome Page
 @Composable
 fun WelcomePage(navController: NavController) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxSize()
+            .padding(horizontal = 15.dp, vertical = 50.dp),
+        verticalArrangement = Arrangement.SpaceBetween,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    )
+    {
+        // Text for APP Name
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(32.dp),
+            text = "Hey, Hello 👋🏻 ",
+            style = TextStyle(
+                fontSize = 24.sp,
+                lineHeight = 32.sp,
+                fontFamily = FontFamily.SansSerif,
+                fontWeight = FontWeight(700),
+                color = Color(0x99000000),
+            ),
+        )
+        // Image for Splash Screen
+        Image(
+            painter = painterResource(id = R.drawable.splash),
+            contentDescription = "SplashPic"
+        )
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxSize()
-                .padding(horizontal = 15.dp, vertical = 50.dp),
-            verticalArrangement = Arrangement.SpaceBetween,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        )
-        {
-            // Text for APP Name
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(32.dp),
-                text = "Hey, Hello 👋🏻 ",
-                style = TextStyle(
-                    fontSize = 24.sp,
-                    lineHeight = 32.sp,
-                    fontFamily = FontFamily.SansSerif,
-                    fontWeight = FontWeight(700),
-                    color = Color(0x99000000),
+                .height(256.dp)
+                .padding(
+                    start = Variables.xSm,
+                    top = Variables.xSm,
+                    end = Variables.xSm,
+                    bottom = Variables.xSm
                 ),
-            )
-            // Image for Splash Screen
-            Image(
-                painter = painterResource(id = R.drawable.splash),
-                contentDescription = "SplashPic"
-            )
-            Column(
+            verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            // Custom Button for Login With Google
+            ButtonComp(
+                text = "  Continue With Google",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(256.dp)
-                    .padding(
-                        start = Variables.xSm,
-                        top = Variables.xSm,
-                        end = Variables.xSm,
-                        bottom = Variables.xSm
-                    ),
-                verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                    // Custom Button for Login With Google
-                    ButtonComp(
-                        text = "  Continue With Google",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(48.dp),
-                        onClick = { },
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            lineHeight = 24.sp,
-                            fontFamily = FontFamily.SansSerif,
-                            fontWeight = FontWeight(600),
-                            color = Variables.Grey900,
-                        ),
-                        shape = RoundedCornerShape(999.dp),
-                        colors = ButtonDefaults.buttonColors(Variables.Grey200),
-                        IconStart = {
-                            Image(
-                                painter = painterResource(id = R.drawable.googlehd),
-                                contentDescription = "GoogleIcon", modifier = Modifier
-                                    .width(24.dp)
-                                    .height(24.dp)
-                            )
-                        }
+                    .height(48.dp),
+                onClick = { },
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    lineHeight = 24.sp,
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight(600),
+                    color = Variables.Grey900,
+                ),
+                shape = RoundedCornerShape(999.dp),
+                colors = ButtonDefaults.buttonColors(Variables.Grey200),
+                IconStart = {
+                    Image(
+                        painter = painterResource(id = R.drawable.googlehd),
+                        contentDescription = "GoogleIcon", modifier = Modifier
+                            .width(24.dp)
+                            .height(24.dp)
                     )
-                    // Custom Button for Login With Github
+                }
+            )
+            // Custom Button for Login With Github
 
-                    ButtonComp(onClick = { },
-                        text = "  Continue With Github",
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            lineHeight = 24.sp,
-                            fontFamily = FontFamily.SansSerif,
-                            fontWeight = FontWeight(600),
-                            color = Variables.Grey900,
-                            textAlign = TextAlign.Center,
-                        ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(48.dp),
-                        colors = ButtonDefaults.buttonColors(Variables.Grey200),
-                        shape = RoundedCornerShape(999.dp),
-                     IconStart = {
-                         Image(
-                             painter = painterResource(id = R.drawable.githubhd),
-                             contentDescription = "GithubIcon", modifier = Modifier
-                                 .width(24.dp)
-                                 .height(24.dp)
-                                 .padding(2.dp)
-                         )
-                     }
+            ButtonComp(onClick = { },
+                text = "  Continue With Github",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    lineHeight = 24.sp,
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight(600),
+                    color = Variables.Grey900,
+                    textAlign = TextAlign.Center,
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp),
+                colors = ButtonDefaults.buttonColors(Variables.Grey200),
+                shape = RoundedCornerShape(999.dp),
+                IconStart = {
+                    Image(
+                        painter = painterResource(id = R.drawable.githubhd),
+                        contentDescription = "GithubIcon", modifier = Modifier
+                            .width(24.dp)
+                            .height(24.dp)
+                            .padding(2.dp)
                     )
-                // Text for OR
-                Text(
-                    text = "OR",
+                }
+            )
+            // Text for OR
+            Text(
+                text = "OR",
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    lineHeight = 24.sp,
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight(600),
+                    color = Variables.textInactive,
+                    textAlign = TextAlign.Center,
+                ),
+                modifier = Modifier
+                    .width(23.dp)
+                    .height(24.dp)
+            )
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(
+                    8.dp,
+                    Alignment.CenterHorizontally
+                ),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+            ) {
+                // Custom Button for Login With Email
+                ButtonComp(onClick = { navController.navigate(AppScreen.Login) },
+                    text = "Continue With Email",
                     style = TextStyle(
                         fontSize = 16.sp,
                         lineHeight = 24.sp,
                         fontFamily = FontFamily.SansSerif,
-                        fontWeight = FontWeight(600),
-                        color = Variables.textInactive,
+                        fontWeight = FontWeight(400),
+                        color = Variables.textIconographyDarkActive,
                         textAlign = TextAlign.Center,
                     ),
                     modifier = Modifier
-                        .width(23.dp)
-                        .height(24.dp)
-                )
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(
-                        8.dp,
-                        Alignment.CenterHorizontally
-                    ),
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier
                         .fillMaxWidth()
-                        .height(48.dp)
-                ) {
-                    // Custom Button for Login With Email
-                    ButtonComp(onClick = { navController.navigate(AppScreen.login) },
-                        text = "Continue With Email",
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            lineHeight = 24.sp,
-                            fontFamily = FontFamily.SansSerif,
-                            fontWeight = FontWeight(400),
-                            color = Variables.textIconographyDarkActive,
-                            textAlign = TextAlign.Center,
-                        ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(48.dp),
-                        colors = ButtonDefaults.buttonColors(Variables.primary500),
-                        shape = RoundedCornerShape(999.dp),
-                        IconEnd = {
-                            // Right Icon For Custom Button
-                            Image(
-                                painter = painterResource(id = R.drawable.righthdicon),
-                                contentDescription = "RightIcon",
-                                modifier = Modifier
-                                    .padding(1.dp)
-                                    .width(20.dp)
-                                    .height(20.dp)
-                            )
-                        }
-                    )
-                }
+                        .height(48.dp),
+                    colors = ButtonDefaults.buttonColors(Variables.primary500),
+                    shape = RoundedCornerShape(999.dp),
+                    IconEnd = {
+                        // Right Icon For Custom Button
+                        Image(
+                            painter = painterResource(id = R.drawable.righthdicon),
+                            contentDescription = "RightIcon",
+                            modifier = Modifier
+                                .padding(1.dp)
+                                .width(20.dp)
+                                .height(20.dp)
+                        )
+                    }
+                )
             }
         }
     }
+}
