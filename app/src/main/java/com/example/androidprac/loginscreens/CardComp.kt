@@ -46,7 +46,6 @@ fun CardComponent(
                 end = Variables.sm,
                 bottom = Variables.xSm
             )
-            .clickable(onClick = onClick)
 
     )
     {
