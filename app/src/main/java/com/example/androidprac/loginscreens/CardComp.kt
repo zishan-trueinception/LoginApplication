@@ -4,7 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -13,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -47,22 +50,37 @@ fun CardComponent(
 
     )
     {
-        Image(
-            painter = painterResource(id = imageResId),
-            contentDescription = null,
-        )
-        Text(
-            text = text,
-            style = TextStyle(
-                fontSize = 12.sp,
-                lineHeight = 16.sp,
-                fontFamily = FontFamily.SansSerif,
-                fontWeight = FontWeight(400),
-                color = Variables.textInactive,
-                textAlign = TextAlign.Center,
-            ),
+        Box(
             modifier = Modifier
-                .width(89.6.dp)
-        )
+                .clip(RoundedCornerShape(size = Variables.xSm))
+                .clickable(onClick = onClick)
+                .background(color = Color.White)
+                .fillMaxSize()
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(Variables.xSm)
+            ) {
+
+                Image(
+                    painter = painterResource(id = imageResId),
+                    contentDescription = null,
+                )
+                Text(
+                    text = text,
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        lineHeight = 16.sp,
+                        fontFamily = FontFamily.SansSerif,
+                        fontWeight = FontWeight(400),
+                        color = Variables.textInactive,
+                        textAlign = TextAlign.Center,
+                    ),
+                    modifier = Modifier
+                        .width(89.6.dp)
+                )
+            }
+        }
     }
 }
