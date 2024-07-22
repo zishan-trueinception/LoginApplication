@@ -39,7 +39,7 @@ object Colors {
     val textActive: Color = Color(0xDE000000)
 }
 
-@Preview
+
 @Composable
 fun HomeScreen() {
     LazyColumn(
