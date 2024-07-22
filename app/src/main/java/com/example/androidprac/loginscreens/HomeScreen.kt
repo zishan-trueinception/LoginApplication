@@ -43,7 +43,7 @@ object Colors {
 @Composable
 fun HomeScreen() {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.Top),
+        verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth()
@@ -55,7 +55,7 @@ fun HomeScreen() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, top = 16.dp, end = 0.dp, bottom = 16.dp),
+                    .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 0.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.Start),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -188,10 +188,7 @@ fun HomeScreen() {
                     )
                 )
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(
-                        Dimentions.xSm,
-                        Alignment.Start
-                    ),
+                    horizontalArrangement = Arrangement.spacedBy(Dimentions.xSm, Alignment.Start),
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .border(width = 1.dp, color = Colors.ShadesOfGray400)
@@ -199,45 +196,46 @@ fun HomeScreen() {
                         .height(2.dp)
                 )
                 {}
-            }
-            LazyRow {
-                item {
-                    ProductCardComp(
-                        title = "Development Boards",
-                        imageResId = R.drawable.stack,
-                        productname = "Arduino Nano RP2040",
-                        deliverytype = "free delivery",
-                        badges1 = R.drawable.badges,
-                        badges2 = R.drawable.badgetwo,
-                        view = "1563 reviews",
-                        price = "",
-                        oldprice = "",
-                        onClick = {}
-                    )
-                    ProductCardComp(
-                        title = "raspberry pi",
-                        imageResId = R.drawable.raspberry,
-                        productname = "Raspberry PI 4 Model B With 4GB RAM",
-                        deliverytype = "free delivery",
-                        badges1 = R.drawable.badges,
-                        badges2 = null,
-                        view = "1563 reviews",
-                        price = "₹ 5,999.00",
-                        oldprice = "₹ 6,400.00",
-                        onClick = {}
-                    )
-                    ProductCardComp(
-                        title = "raspberry pi",
-                        imageResId = R.drawable.raspberry,
-                        productname = "Raspberry PI 4 Model B With 4GB RAM",
-                        deliverytype = "free delivery",
-                        badges1 = R.drawable.badges,
-                        badges2 = null,
-                        view = "1563 reviews",
-                        price = "₹ 5,999.00",
-                        oldprice = "₹ 6,400.00",
-                        onClick = {}
-                    )
+//            }
+                LazyRow {
+                    item {
+                        ProductCardComp(
+                            title = "Development Boards",
+                            imageResId = R.drawable.stack,
+                            productname = "Arduino Nano RP2040",
+                            deliverytype = "free delivery",
+                            badges1 = R.drawable.badges,
+                            badges2 = R.drawable.badgetwo,
+                            view = "1563 reviews",
+                            price = "",
+                            oldprice = "",
+                            onClick = {}
+                        )
+                        ProductCardComp(
+                            title = "raspberry pi",
+                            imageResId = R.drawable.raspberry,
+                            productname = "Raspberry PI 4 Model B With 4GB RAM",
+                            deliverytype = "free delivery",
+                            badges1 = R.drawable.badges,
+                            badges2 = null,
+                            view = "1563 reviews",
+                            price = "₹ 5,999.00",
+                            oldprice = "₹ 6,400.00",
+                            onClick = {}
+                        )
+                        ProductCardComp(
+                            title = "raspberry pi",
+                            imageResId = R.drawable.raspberry,
+                            productname = "Raspberry PI 4 Model B With 4GB RAM",
+                            deliverytype = "free delivery",
+                            badges1 = R.drawable.badges,
+                            badges2 = null,
+                            view = "1563 reviews",
+                            price = "₹ 5,999.00",
+                            oldprice = "₹ 6,400.00",
+                            onClick = {}
+                        )
+                    }
                 }
             }
         }
