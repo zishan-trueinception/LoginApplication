@@ -41,8 +41,9 @@ fun ProductCardComp(
     badges1: Int,
     badges2: Int? = null,
     view: String,
-    price: String,
+    offerprice: String,
     oldprice: String,
+    price: String,
     onClick: () -> Unit,
 ) {
     Surface(
@@ -145,6 +146,19 @@ fun ProductCardComp(
                 )
             }
             Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = price,
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        fontFamily = FontFamily.SansSerif,
+                        fontWeight = FontWeight(400),
+                    )
+                )
+            }
+            Row(
                 horizontalArrangement = Arrangement.spacedBy(
                     4.dp,
                     Alignment.CenterHorizontally
@@ -165,7 +179,7 @@ fun ProductCardComp(
                     //.height(16.dp)
                 )
                 Text(
-                    text = price,
+                    text = offerprice,
                     style = TextStyle(
                         fontSize = 14.sp,
                         lineHeight = 20.sp,
@@ -176,7 +190,6 @@ fun ProductCardComp(
                         .width(68.dp)
                     //.height(20.dp)
                 )
-
             }
         }
     }

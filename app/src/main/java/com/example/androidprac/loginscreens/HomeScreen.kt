@@ -23,7 +23,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -143,17 +142,17 @@ fun HomeScreen() {
                         CardComponent(
                             onClick = { },
                             text = "Raspberry Pi",
-                            imageResId = R.drawable.raspberry
+                            imageResId = R.drawable.wires
+                        )
+                        CardComponent(
+                            onClick = { },
+                            text = "Cameras & Sensors",
+                            imageResId = R.drawable.camera
                         )
                         CardComponent(
                             onClick = { },
                             text = "Development Boards",
-                            imageResId = R.drawable.avatar
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.development
+                            imageResId = R.drawable.passive
                         )
                         CardComponent(
                             onClick = { },
@@ -162,8 +161,8 @@ fun HomeScreen() {
                         )
                         CardComponent(
                             onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.avatar
+                            text = "Motors & Actuators",
+                            imageResId = R.drawable.actuator
                         )
                     }
                 }
@@ -207,32 +206,59 @@ fun HomeScreen() {
                             badges1 = R.drawable.badges,
                             badges2 = R.drawable.badgetwo,
                             view = "1563 reviews",
+                            offerprice = "",
+                            oldprice = "",
                             price = "",
+                            onClick = {},
+                        )
+                        ProductCardComp(
+                            title = "raspberry pi",
+                            imageResId = R.drawable.raspberry,
+                            productname = "Raspberry PI 4 Model B With 4GB RAM",
+                            deliverytype = "free delivery",
+                            badges1 = R.drawable.badges,
+                            badges2 = null,
+                            view = "1563 reviews",
+                            offerprice = "₹ 5,999.00",
+                            oldprice = "₹ 6,400.00",
+                            price = "",
+                            onClick = {}
+                        )
+                        ProductCardComp(
+                            title = "3D Printers",
+                            imageResId = R.drawable.printer,
+                            productname = "3D Printer Extruder 0.5mm nozzle",
+                            deliverytype = "free delivery",
+                            badges1 = R.drawable.badges,
+                            badges2 = R.drawable.badgetwo,
+                            view = "1563 reviews",
+                            offerprice = "",
+                            oldprice = "",
+                            price = "",
+                            onClick = {}
+                        )
+                        ProductCardComp(
+                            title = "Sensors & Cameras",
+                            imageResId = R.drawable.sensor,
+                            productname = "3D Printer Extruder 0.5mm nozzle",
+                            deliverytype = "free delivery",
+                            badges1 = R.drawable.badges,
+                            view = "1563 reviews",
+                            offerprice = "",
+                            price = "₹ 6,400.00",
                             oldprice = "",
                             onClick = {}
                         )
                         ProductCardComp(
-                            title = "raspberry pi",
-                            imageResId = R.drawable.raspberry,
-                            productname = "Raspberry PI 4 Model B With 4GB RAM",
+                            title = "Development Boards",
+                            imageResId = R.drawable.arduino,
+                            productname = "Original Arduino UNO Atmega325u",
                             deliverytype = "free delivery",
                             badges1 = R.drawable.badges,
-                            badges2 = null,
                             view = "1563 reviews",
-                            price = "₹ 5,999.00",
-                            oldprice = "₹ 6,400.00",
-                            onClick = {}
-                        )
-                        ProductCardComp(
-                            title = "raspberry pi",
-                            imageResId = R.drawable.raspberry,
-                            productname = "Raspberry PI 4 Model B With 4GB RAM",
-                            deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
-                            badges2 = null,
-                            view = "1563 reviews",
-                            price = "₹ 5,999.00",
-                            oldprice = "₹ 6,400.00",
+                            offerprice = "",
+                            oldprice = "",
+                            price = "₹ 950.00",
                             onClick = {}
                         )
                     }
