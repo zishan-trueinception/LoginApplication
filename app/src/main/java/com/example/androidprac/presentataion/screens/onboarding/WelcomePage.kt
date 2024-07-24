@@ -24,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidprac.R
 import com.example.androidprac.presentataion.NavigationRoute
@@ -42,7 +43,7 @@ object Variables {
 
 // Welcome Page
 @Composable
-fun WelcomePage(navController: NavController) {
+fun WelcomePage(navController: NavController, onboardingViewModel: OnboardingViewModel = hiltViewModel()) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -57,7 +58,7 @@ fun WelcomePage(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(32.dp),
-            text = "Hey, Hello 👋🏻 ",
+            text = onboardingViewModel.getHelloString(),
             style = TextStyle(
                 fontSize = 24.sp,
                 lineHeight = 32.sp,

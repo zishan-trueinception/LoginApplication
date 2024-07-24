@@ -1,5 +1,6 @@
 package com.example.androidprac.presentataion.components
 
+import android.media.Rating
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -39,8 +40,8 @@ fun ProductCardComp(
     imageResId: Int,
     productname: String,
     deliverytype: String,
-    badges1: Int,
-    badges2: Int? = null,
+    rating: String? = null,
+    stockStatus:String,
     view: String,
     offerprice: String,
     oldprice: String,
@@ -116,13 +117,9 @@ fun ProductCardComp(
                 ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    painter = painterResource(id = badges1),
-                    contentDescription = "badges",
-                    modifier = Modifier
-                        .width(39.dp)
-                        .height(20.dp)
-                )
+                rating?.let {
+                    RatingBadgeComp(rating = it)
+                }
                 Text(
                     text = view,
                     style = TextStyle(
@@ -137,14 +134,17 @@ fun ProductCardComp(
                     //.height(16.dp)
                 )
             }
-            badges2?.let { painterResource(id = it) }?.let {
-                Image(
-                    painter = it,
-                    contentDescription = "ContentDescription",
-                    modifier = Modifier
-                        .width(82.dp)
-                        .height(15.dp)
-                )
+//            badges2?.let { painterResource(id = it) }?.let {
+//                Image(
+//                    painter = it,
+//                    contentDescription = "ContentDescription",
+//                    modifier = Modifier
+//                        .width(82.dp)
+//                        .height(15.dp)
+//                )
+//            }
+            stockStatus?.let {
+                StockBadgeComp(stock = it)
             }
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),

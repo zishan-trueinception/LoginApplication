@@ -200,7 +200,6 @@ fun HomeScreen() {
                         .height(2.dp)
                 )
                 {}
-//            }
                 LazyRow {
                     item {
                         ProductCardComp(
@@ -208,63 +207,65 @@ fun HomeScreen() {
                             imageResId = R.drawable.stack,
                             productname = "Arduino Nano RP2040",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
-                            badges2 = R.drawable.badgetwo,
                             view = "1563 reviews",
                             offerprice = "",
                             oldprice = "",
                             price = "",
                             onClick = {},
+                            rating = "4.9",
+                            stockStatus = "Out of Stock"
                         )
                         ProductCardComp(
                             title = "raspberry pi",
                             imageResId = R.drawable.raspberry,
                             productname = "Raspberry PI 4 Model B With 4GB RAM",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
-                            badges2 = null,
                             view = "1563 reviews",
                             offerprice = "₹ 5,999.00",
                             oldprice = "₹ 6,400.00",
                             price = "",
-                            onClick = {}
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
                         )
                         ProductCardComp(
                             title = "3D Printers",
                             imageResId = R.drawable.printer,
                             productname = "3D Printer Extruder 0.5mm nozzle",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
-                            badges2 = R.drawable.badgetwo,
                             view = "1563 reviews",
                             offerprice = "",
                             oldprice = "",
                             price = "",
-                            onClick = {}
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
                         )
                         ProductCardComp(
                             title = "Sensors & Cameras",
                             imageResId = R.drawable.sensor,
                             productname = "3D Printer Extruder 0.5mm nozzle",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
                             view = "1563 reviews",
                             offerprice = "",
                             price = "₹ 6,400.00",
                             oldprice = "",
-                            onClick = {}
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
                         )
                         ProductCardComp(
                             title = "Development Boards",
                             imageResId = R.drawable.arduino,
                             productname = "Original Arduino UNO Atmega325u",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
                             view = "1563 reviews",
                             offerprice = "",
                             oldprice = "",
                             price = "₹ 950.00",
-                            onClick = {}
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
                         )
                     }
                 }
