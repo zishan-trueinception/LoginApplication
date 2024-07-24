@@ -1,4 +1,4 @@
-package com.example.androidprac.loginscreens
+package com.example.androidprac.presentataion.screens.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,10 +25,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidprac.R
+import com.example.androidprac.presentataion.components.CardComponent
+import com.example.androidprac.presentataion.components.Carousel
+import com.example.androidprac.presentataion.components.ProductCardComp
 
 object Dimentions {
     val xSm: Dp = 8.dp
@@ -39,6 +45,7 @@ object Colors {
 }
 
 // home screen
+@Preview
 @Composable
 fun HomeScreen() {
     LazyColumn(
@@ -47,7 +54,7 @@ fun HomeScreen() {
         modifier = Modifier
             .fillMaxWidth()
             .background(Color.White)
-            .padding(start = 8.dp, end = 8.dp)
+            .padding(start = 16.dp, end = 16.dp)
 
     ) {
         item {
@@ -59,6 +66,7 @@ fun HomeScreen() {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 OutlinedTextField(
+                    modifier = Modifier.weight(1f),
                     value = "", onValueChange = {},
                     placeholder = { Text(text = "Search for Parts") },
                     shape = RoundedCornerShape(999.dp),
@@ -73,23 +81,20 @@ fun HomeScreen() {
                         )
                     },
                     trailingIcon = {
-                        Image(
-                            painter = painterResource(id = R.drawable.mic),
-                            contentDescription = "MicIcon", modifier = Modifier
-                                .padding(1.dp)
-                                .width(24.dp)
-                                .height(24.dp)
-                        )
-                    }, modifier = Modifier
-                    //.height(50.dp)
+                        IconButton(onClick = { }) {
+                            Image(painter = painterResource(id = R.drawable.mic),
+                                contentDescription = "searchIcon",
+                                modifier = Modifier
+                                    .padding(1.dp)
+                                    .size(24.dp))
+                        }
+                    }
                 )
-                Image(
-                    painter = painterResource(id = R.drawable.avatar),
-                    contentDescription = "AvatarIcon",
-                    modifier = Modifier
-                        .width(60.dp)
-                        .height(60.dp)
-                )
+                IconButton(onClick = { }, modifier = Modifier.size(50.dp)) {
+                    Image(painter = painterResource(id = R.drawable.newavatar),
+                        contentDescription = "profileAvatar",
+                    )
+                }
             }
         }
         item {

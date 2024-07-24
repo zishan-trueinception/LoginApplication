@@ -4,14 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.androidprac.loginscreens.NavController
+import com.example.androidprac.presentataion.NavController
+import com.example.androidprac.ui.theme.AndroidPracTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            NavController()
+            enableEdgeToEdge()
+            AndroidPracTheme {
+                NavController()
+            }
         }
     }
 }

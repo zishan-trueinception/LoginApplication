@@ -1,4 +1,4 @@
-package com.example.androidprac.loginscreens
+package com.example.androidprac.presentataion.screens.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +26,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.androidprac.R
-import com.example.androidprac.androidpractice.ButtonComp
+import com.example.androidprac.presentataion.NavigationRoute
+import com.example.androidprac.presentataion.components.ButtonComp
 
 // object for Colors and Dimensions
 object Variables {
@@ -161,7 +162,7 @@ fun WelcomePage(navController: NavController) {
                     .height(48.dp)
             ) {
                 // Custom Button for Login With Email
-                ButtonComp(onClick = { navController.navigate(AppScreen.Login) },
+                ButtonComp(onClick = { navController.navigate(NavigationRoute.Login) },
                     text = "Continue With Email",
                     style = TextStyle(
                         fontSize = 16.sp,

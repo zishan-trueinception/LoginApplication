@@ -1,4 +1,4 @@
-package com.example.androidprac.loginscreens
+package com.example.androidprac.presentataion.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.androidprac.presentataion.screens.onboarding.Variables
 
 // Define a data class for the card colors
 object ProductCardColor {

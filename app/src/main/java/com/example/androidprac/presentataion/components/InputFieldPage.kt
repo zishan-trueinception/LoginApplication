@@ -1,4 +1,4 @@
-package com.example.androidprac.androidpractice
+package com.example.androidprac.presentataion.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

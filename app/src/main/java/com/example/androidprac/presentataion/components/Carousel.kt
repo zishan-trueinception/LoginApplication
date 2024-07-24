@@ -1,4 +1,4 @@
-package com.example.androidprac.loginscreens
+package com.example.androidprac.presentataion.components
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
