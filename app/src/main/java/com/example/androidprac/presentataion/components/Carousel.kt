@@ -31,7 +31,7 @@ import kotlinx.coroutines.delay
 
 // Banner Carousel
 @Composable
-fun Carousel(modifier: Modifier = Modifier,carouselViewModel: CarouselViewModel) {
+fun Carousel(modifier: Modifier = Modifier,carouselViewModel: CarouselViewModel= hiltViewModel()) {
     val images = carouselViewModel.getCarouselList()
 //        listOf(
 //        R.drawable.newbannerone,
