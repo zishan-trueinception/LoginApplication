@@ -1,7 +1,11 @@
 package com.example.androidprac.di
 
+import com.example.androidprac.core.data.repositories.CarouselRepo
+import com.example.androidprac.core.data.repositories.CarouselRepoImpl
 import com.example.androidprac.core.data.repositories.HelloRepo
 import com.example.androidprac.core.data.repositories.HelloRepoImpl
+import com.example.androidprac.core.data.repositories.SignUpRepository
+import com.example.androidprac.core.data.repositories.SignUpRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +18,19 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideHelloRepo(): HelloRepo {
+    fun provideHelloRepository(): HelloRepo {
         return HelloRepoImpl()
+    }
+
+    @Singleton
+    @Provides
+    fun provideSignUpRepository(): SignUpRepository {
+        return SignUpRepositoryImpl()
+    }
+
+    @Singleton
+    @Provides
+    fun ProvideCarouselRepo(): CarouselRepo {
+        return CarouselRepoImpl()
     }
 }

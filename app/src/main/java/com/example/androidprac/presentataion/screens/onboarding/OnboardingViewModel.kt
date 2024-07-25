@@ -6,9 +6,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class OnboardingViewModel @Inject constructor(val helloRepo: HelloRepo) :ViewModel() {
-
-    fun getHelloString():String{
+class OnboardingViewModel @Inject constructor(
+    private val helloRepo: HelloRepo
+) : ViewModel() {
+    fun getHelloString(): String {
         return helloRepo.sayHello()
     }
 }

@@ -226,7 +226,7 @@ fun HomeScreen() {
                             price = "",
                             onClick = {},
                             rating = "4.8",
-                            stockStatus = "Out of Stock"
+                            stockStatus = null
                         )
                         ProductCardComp(
                             title = "3D Printers",
@@ -252,7 +252,7 @@ fun HomeScreen() {
                             oldprice = "",
                             onClick = {},
                             rating = "4.8",
-                            stockStatus = "Out of Stock"
+                            stockStatus = "Available Soon"
                         )
                         ProductCardComp(
                             title = "Development Boards",
@@ -265,7 +265,7 @@ fun HomeScreen() {
                             price = "₹ 950.00",
                             onClick = {},
                             rating = "4.8",
-                            stockStatus = "Out of Stock"
+                            stockStatus = null
                         )
                     }
                 }

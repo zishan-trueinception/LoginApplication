@@ -34,14 +34,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidprac.R
 import com.example.androidprac.presentataion.NavigationRoute
 import com.example.androidprac.presentataion.components.ButtonComp
+import com.example.androidprac.presentataion.components.Carousel
 
 @Composable
 // Login Page
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(navController: NavController,carouselViewModel: CarouselViewModel= hiltViewModel()) {
 
     //Checkbox for Remember Me
     var checked by remember { mutableStateOf(true) }
@@ -227,7 +229,7 @@ fun LoginScreen(navController: NavController) {
                         .height(48.dp)
                 ) {
                     // Custom Button For Login
-                    ButtonComp(onClick = { navController.navigate(NavigationRoute.Home) },
+                    ButtonComp(onClick = { navController.navigate(NavigationRoute.Homepage) },
                         text = "LOG IN",
                         style = TextStyle(
                             fontSize = 16.sp,

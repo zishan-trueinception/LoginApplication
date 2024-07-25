@@ -29,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidprac.R
 import com.example.androidprac.presentataion.NavigationRoute
@@ -37,7 +38,8 @@ import com.example.androidprac.presentataion.components.ButtonComp
 @Composable
 
 // Account Page
-fun SignUpScreen(navController: NavController) {
+fun SignUpScreen(navController: NavController,signUpViewModel: SignUpViewModel=hiltViewModel()) {
+
     Column(
         Modifier
             .fillMaxWidth()
@@ -60,7 +62,7 @@ fun SignUpScreen(navController: NavController) {
             ) {
                 // Text for APP Name
                 Text(
-                    text = "Create Account",
+                    text = signUpViewModel.getSignUpString(),
                     Modifier
                         .fillMaxWidth(),
                     style = TextStyle(

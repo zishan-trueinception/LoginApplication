@@ -24,19 +24,22 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.androidprac.R
+import com.example.androidprac.presentataion.screens.onboarding.CarouselViewModel
 import kotlinx.coroutines.delay
 
 // Banner Carousel
 @Composable
-fun Carousel(modifier: Modifier = Modifier) {
-    val images = listOf(
-        R.drawable.newbannerone,
-        R.drawable.newbannertwo,
-        R.drawable.newbannerreplace,
-        R.drawable.newbannerfourth,
-        R.drawable.newbannerfifth
-    )
+fun Carousel(modifier: Modifier = Modifier,carouselViewModel: CarouselViewModel) {
+    val images = carouselViewModel.getCarouselList()
+//        listOf(
+//        R.drawable.newbannerone,
+//        R.drawable.newbannertwo,
+//        R.drawable.newbannerreplace,
+//        R.drawable.newbannerfourth,
+//        R.drawable.newbannerfifth
+//    )
     val pagerState = rememberPagerState(pageCount = { images.size })
     LaunchedEffect(Unit) {
         while (true) {
