@@ -1,5 +1,6 @@
-package com.example.androidprac.loginscreens
+package com.example.androidprac.presentataion.components
 
+import android.media.Rating
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.androidprac.presentataion.screens.onboarding.Variables
 
 // Define a data class for the card colors
 object ProductCardColor {
@@ -38,11 +40,12 @@ fun ProductCardComp(
     imageResId: Int,
     productname: String,
     deliverytype: String,
-    badges1: Int,
-    badges2: Int? = null,
+    rating: String? = null,
+    stockStatus:String,
     view: String,
-    price: String,
+    offerprice: String,
     oldprice: String,
+    price: String,
     onClick: () -> Unit,
 ) {
     Surface(
@@ -114,13 +117,9 @@ fun ProductCardComp(
                 ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    painter = painterResource(id = badges1),
-                    contentDescription = "badges",
-                    modifier = Modifier
-                        .width(39.dp)
-                        .height(20.dp)
-                )
+                rating?.let {
+                    RatingBadgeComp(rating = it)
+                }
                 Text(
                     text = view,
                     style = TextStyle(
@@ -135,13 +134,29 @@ fun ProductCardComp(
                     //.height(16.dp)
                 )
             }
-            badges2?.let { painterResource(id = it) }?.let {
-                Image(
-                    painter = it,
-                    contentDescription = "ContentDescription",
-                    modifier = Modifier
-                        .width(82.dp)
-                        .height(15.dp)
+//            badges2?.let { painterResource(id = it) }?.let {
+//                Image(
+//                    painter = it,
+//                    contentDescription = "ContentDescription",
+//                    modifier = Modifier
+//                        .width(82.dp)
+//                        .height(15.dp)
+//                )
+//            }
+            stockStatus?.let {
+                StockBadgeComp(stock = it)
+            }
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = price,
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        fontFamily = FontFamily.SansSerif,
+                        fontWeight = FontWeight(400),
+                    )
                 )
             }
             Row(
@@ -165,7 +180,7 @@ fun ProductCardComp(
                     //.height(16.dp)
                 )
                 Text(
-                    text = price,
+                    text = offerprice,
                     style = TextStyle(
                         fontSize = 14.sp,
                         lineHeight = 20.sp,
@@ -176,7 +191,6 @@ fun ProductCardComp(
                         .width(68.dp)
                     //.height(20.dp)
                 )
-
             }
         }
     }

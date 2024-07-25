@@ -1,4 +1,4 @@
-package com.example.androidprac.loginscreens
+package com.example.androidprac.presentataion.screens.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column

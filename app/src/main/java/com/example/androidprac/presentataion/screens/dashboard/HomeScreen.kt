@@ -1,4 +1,4 @@
-package com.example.androidprac.loginscreens
+package com.example.androidprac.presentataion.screens.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +30,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidprac.R
+import com.example.androidprac.presentataion.components.CardComponent
+import com.example.androidprac.presentataion.components.Carousel
+import com.example.androidprac.presentataion.components.ProductCardComp
 
 object Dimentions {
     val xSm: Dp = 8.dp
@@ -40,6 +45,7 @@ object Colors {
 }
 
 // home screen
+@Preview
 @Composable
 fun HomeScreen() {
     LazyColumn(
@@ -48,7 +54,7 @@ fun HomeScreen() {
         modifier = Modifier
             .fillMaxWidth()
             .background(Color.White)
-            .padding(start = 8.dp, end = 8.dp)
+            .padding(start = 16.dp, end = 16.dp)
 
     ) {
         item {
@@ -60,6 +66,7 @@ fun HomeScreen() {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 OutlinedTextField(
+                    modifier = Modifier.weight(1f),
                     value = "", onValueChange = {},
                     placeholder = { Text(text = "Search for Parts") },
                     shape = RoundedCornerShape(999.dp),
@@ -74,23 +81,20 @@ fun HomeScreen() {
                         )
                     },
                     trailingIcon = {
-                        Image(
-                            painter = painterResource(id = R.drawable.mic),
-                            contentDescription = "MicIcon", modifier = Modifier
-                                .padding(1.dp)
-                                .width(24.dp)
-                                .height(24.dp)
-                        )
-                    }, modifier = Modifier
-                    //.height(50.dp)
+                        IconButton(onClick = { }) {
+                            Image(painter = painterResource(id = R.drawable.mic),
+                                contentDescription = "searchIcon",
+                                modifier = Modifier
+                                    .padding(1.dp)
+                                    .size(24.dp))
+                        }
+                    }
                 )
-                Image(
-                    painter = painterResource(id = R.drawable.avatar),
-                    contentDescription = "AvatarIcon",
-                    modifier = Modifier
-                        .width(60.dp)
-                        .height(60.dp)
-                )
+                IconButton(onClick = { }, modifier = Modifier.size(50.dp)) {
+                    Image(painter = painterResource(id = R.drawable.newavatar),
+                        contentDescription = "profileAvatar",
+                    )
+                }
             }
         }
         item {
@@ -143,17 +147,17 @@ fun HomeScreen() {
                         CardComponent(
                             onClick = { },
                             text = "Raspberry Pi",
-                            imageResId = R.drawable.raspberry
+                            imageResId = R.drawable.wires
+                        )
+                        CardComponent(
+                            onClick = { },
+                            text = "Cameras & Sensors",
+                            imageResId = R.drawable.camera
                         )
                         CardComponent(
                             onClick = { },
                             text = "Development Boards",
-                            imageResId = R.drawable.avatar
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.development
+                            imageResId = R.drawable.passive
                         )
                         CardComponent(
                             onClick = { },
@@ -162,8 +166,8 @@ fun HomeScreen() {
                         )
                         CardComponent(
                             onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.avatar
+                            text = "Motors & Actuators",
+                            imageResId = R.drawable.actuator
                         )
                     }
                 }
@@ -196,7 +200,6 @@ fun HomeScreen() {
                         .height(2.dp)
                 )
                 {}
-//            }
                 LazyRow {
                     item {
                         ProductCardComp(
@@ -204,36 +207,65 @@ fun HomeScreen() {
                             imageResId = R.drawable.stack,
                             productname = "Arduino Nano RP2040",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
-                            badges2 = R.drawable.badgetwo,
                             view = "1563 reviews",
-                            price = "",
+                            offerprice = "",
                             oldprice = "",
-                            onClick = {}
+                            price = "",
+                            onClick = {},
+                            rating = "4.9",
+                            stockStatus = "Out of Stock"
                         )
                         ProductCardComp(
                             title = "raspberry pi",
                             imageResId = R.drawable.raspberry,
                             productname = "Raspberry PI 4 Model B With 4GB RAM",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
-                            badges2 = null,
                             view = "1563 reviews",
-                            price = "₹ 5,999.00",
+                            offerprice = "₹ 5,999.00",
                             oldprice = "₹ 6,400.00",
-                            onClick = {}
+                            price = "",
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
                         )
                         ProductCardComp(
-                            title = "raspberry pi",
-                            imageResId = R.drawable.raspberry,
-                            productname = "Raspberry PI 4 Model B With 4GB RAM",
+                            title = "3D Printers",
+                            imageResId = R.drawable.printer,
+                            productname = "3D Printer Extruder 0.5mm nozzle",
                             deliverytype = "free delivery",
-                            badges1 = R.drawable.badges,
-                            badges2 = null,
                             view = "1563 reviews",
-                            price = "₹ 5,999.00",
-                            oldprice = "₹ 6,400.00",
-                            onClick = {}
+                            offerprice = "",
+                            oldprice = "",
+                            price = "",
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
+                        )
+                        ProductCardComp(
+                            title = "Sensors & Cameras",
+                            imageResId = R.drawable.sensor,
+                            productname = "3D Printer Extruder 0.5mm nozzle",
+                            deliverytype = "free delivery",
+                            view = "1563 reviews",
+                            offerprice = "",
+                            price = "₹ 6,400.00",
+                            oldprice = "",
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
+                        )
+                        ProductCardComp(
+                            title = "Development Boards",
+                            imageResId = R.drawable.arduino,
+                            productname = "Original Arduino UNO Atmega325u",
+                            deliverytype = "free delivery",
+                            view = "1563 reviews",
+                            offerprice = "",
+                            oldprice = "",
+                            price = "₹ 950.00",
+                            onClick = {},
+                            rating = "4.8",
+                            stockStatus = "Out of Stock"
                         )
                     }
                 }

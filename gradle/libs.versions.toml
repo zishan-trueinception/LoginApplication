@@ -1,8 +1,10 @@
 [versions]
 agp = "8.5.0"
+hiltAndroid = "2.44"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
+hiltNavigationCompose = "1.2.0"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.3"
@@ -10,9 +12,13 @@ activityCompose = "1.9.0"
 composeBom = "2024.06.00"
 composeNavigation = "2.8.0-beta04"
 serialization = "1.6.3"
+hiltVersion = "2.48"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler",version.ref = "hiltVersion" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -34,4 +40,5 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-daggerhilt-android = { id = "com.google.dagger.hilt.android",version.ref = "hiltVersion" }
 
