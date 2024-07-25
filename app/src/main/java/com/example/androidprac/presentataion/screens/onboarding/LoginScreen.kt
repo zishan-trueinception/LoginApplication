@@ -43,7 +43,9 @@ import com.example.androidprac.presentataion.components.Carousel
 
 @Composable
 // Login Page
-fun LoginScreen(navController: NavController,carouselViewModel: CarouselViewModel= hiltViewModel()) {
+fun LoginScreen(
+    navController: NavController, carouselViewModel: CarouselViewModel = hiltViewModel()
+) {
 
     //Checkbox for Remember Me
     var checked by remember { mutableStateOf(true) }
@@ -123,7 +125,7 @@ fun LoginScreen(navController: NavController,carouselViewModel: CarouselViewMode
                     // Email Field
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         value = "",
-                        onValueChange = {},
+                        onValueChange = { },
                         placeholder = {
                             Text(text = "john@example.com")
                         },
@@ -182,7 +184,7 @@ fun LoginScreen(navController: NavController,carouselViewModel: CarouselViewMode
                         // Password Field
                         OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                             value = "",
-                            onValueChange = {},
+                            onValueChange = { },
                             placeholder = {
                                 Text(text = "********")
                             },

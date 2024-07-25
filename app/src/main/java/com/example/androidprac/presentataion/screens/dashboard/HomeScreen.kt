@@ -25,18 +25,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidprac.R
 import com.example.androidprac.presentataion.components.CardComponent
 import com.example.androidprac.presentataion.components.Carousel
+import com.example.androidprac.presentataion.components.NewsletterComp
 import com.example.androidprac.presentataion.components.ProductCardComp
 
 object Dimentions {
     val xSm: Dp = 8.dp
-    val xxSm: Dp = 4.dp
+//    val xxSm: Dp = 4.dp
 }
 
 object Colors {
@@ -45,7 +45,6 @@ object Colors {
 }
 
 // home screen
-@Preview
 @Composable
 fun HomeScreen() {
     LazyColumn(
@@ -66,7 +65,9 @@ fun HomeScreen() {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 OutlinedTextField(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(55.dp),
                     value = "", onValueChange = {},
                     placeholder = { Text(text = "Search for Parts") },
                     shape = RoundedCornerShape(999.dp),
@@ -98,6 +99,7 @@ fun HomeScreen() {
             }
         }
         item {
+            //dagger hilt component
             Carousel()
         }
 
@@ -271,5 +273,9 @@ fun HomeScreen() {
                 }
             }
         }
+        item {
+            NewsletterComp()
+        }
+
     }
 }
