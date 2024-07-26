@@ -106,12 +106,14 @@ fun NewsletterComp(
                 textAlign = TextAlign.Center,
             ),
             modifier = Modifier
-                .width(Variables.Grid)
+                //.width(Variables.Grid)
+                .fillMaxWidth()
                 .height(72.dp)
         )
         Image(
             modifier = Modifier
-                .width(288.dp)
+                //.width(288.dp)
+                .fillMaxWidth()
                 .height(187.dp),
             painter = painterResource(id = R.drawable.newletter),
             contentDescription = "newsLetterImage"
