@@ -46,7 +46,7 @@ object Variables {
 fun NewsletterComp(
     newsName: String = "Subscribe To Our Newsletter",
     bio: String = "By subscribing to our newsletter you are consenting us to send regular promotional mails for latest offers and products",
-    imageResId: Int = R.drawable.papericon,
+    imageResId: Int = R.drawable.ic_paper,
     outlineTextFieldName: String = "Full Name ",
     emailTextFieldName: String = "Email",
 ) {
@@ -115,7 +115,7 @@ fun NewsletterComp(
                 //.width(288.dp)
                 .fillMaxWidth()
                 .height(187.dp),
-            painter = painterResource(id = R.drawable.newletter),
+            painter = painterResource(id = R.drawable.image_news_letter),
             contentDescription = "newsLetterImage"
         )
         Column(

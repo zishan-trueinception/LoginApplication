@@ -73,7 +73,7 @@ fun HomeScreen() {
                     shape = RoundedCornerShape(999.dp),
                     leadingIcon = {
                         Image(
-                            painter = painterResource(id = R.drawable.newkilo),
+                            painter = painterResource(id = R.drawable.ic_newkilo),
                             contentDescription = "",
                             modifier = Modifier
                                 .padding(0.dp)
@@ -92,7 +92,7 @@ fun HomeScreen() {
                     }
                 )
                 IconButton(onClick = { }, modifier = Modifier.size(50.dp)) {
-                    Image(painter = painterResource(id = R.drawable.newavatar),
+                    Image(painter = painterResource(id = R.drawable.ic_avatar),
                         contentDescription = "profileAvatar",
                     )
                 }
@@ -139,37 +139,37 @@ fun HomeScreen() {
                         CardComponent(
                             onClick = { },
                             text = "3D Printing",
-                            imageResId = R.drawable.eclips
+                            imageResId = R.drawable.image_3d_printer
                         )
                         CardComponent(
                             onClick = { },
                             text = "Development Boards",
-                            imageResId = R.drawable.development
+                            imageResId = R.drawable.image_development
                         )
                         CardComponent(
                             onClick = { },
                             text = "Raspberry Pi",
-                            imageResId = R.drawable.wires
+                            imageResId = R.drawable.image_wires
                         )
                         CardComponent(
                             onClick = { },
                             text = "Cameras & Sensors",
-                            imageResId = R.drawable.camera
+                            imageResId = R.drawable.image_camera
                         )
                         CardComponent(
                             onClick = { },
                             text = "Development Boards",
-                            imageResId = R.drawable.passive
+                            imageResId = R.drawable.image_tools
                         )
                         CardComponent(
                             onClick = { },
                             text = "Raspberry Pi",
-                            imageResId = R.drawable.raspberry
+                            imageResId = R.drawable.image_raspberry_pi
                         )
                         CardComponent(
                             onClick = { },
                             text = "Motors & Actuators",
-                            imageResId = R.drawable.actuator
+                            imageResId = R.drawable.image_actuator
                         )
                     }
                 }
@@ -206,7 +206,7 @@ fun HomeScreen() {
                     item {
                         ProductCardComp(
                             title = "Development Boards",
-                            imageResId = R.drawable.stack,
+                            imageResId = R.drawable.image_arduino,
                             productname = "Arduino Nano RP2040",
                             deliverytype = "free delivery",
                             view = "1563 reviews",
@@ -219,7 +219,7 @@ fun HomeScreen() {
                         )
                         ProductCardComp(
                             title = "raspberry pi",
-                            imageResId = R.drawable.raspberry,
+                            imageResId = R.drawable.image_raspberry_pi,
                             productname = "Raspberry PI 4 Model B With 4GB RAM",
                             deliverytype = "free delivery",
                             view = "1563 reviews",
@@ -232,7 +232,7 @@ fun HomeScreen() {
                         )
                         ProductCardComp(
                             title = "3D Printers",
-                            imageResId = R.drawable.printer,
+                            imageResId = R.drawable.image_printer,
                             productname = "3D Printer Extruder 0.5mm nozzle",
                             deliverytype = "free delivery",
                             view = "1563 reviews",
@@ -245,7 +245,7 @@ fun HomeScreen() {
                         )
                         ProductCardComp(
                             title = "Sensors & Cameras",
-                            imageResId = R.drawable.sensor,
+                            imageResId = R.drawable.image_sensor,
                             productname = "3D Printer Extruder 0.5mm nozzle",
                             deliverytype = "free delivery",
                             view = "1563 reviews",
@@ -258,7 +258,7 @@ fun HomeScreen() {
                         )
                         ProductCardComp(
                             title = "Development Boards",
-                            imageResId = R.drawable.arduino,
+                            imageResId = R.drawable.image_arduino,
                             productname = "Original Arduino UNO Atmega325u",
                             deliverytype = "free delivery",
                             view = "1563 reviews",

@@ -72,7 +72,7 @@ fun WelcomePage(navController: NavController, onboardingViewModel: OnboardingVie
         )
         // Image for Splash Screen
         Image(
-            painter = painterResource(id = R.drawable.splash),
+            painter = painterResource(id = R.drawable.image_components_group),
             contentDescription = "SplashPic"
         )
         Column(
@@ -106,7 +106,7 @@ fun WelcomePage(navController: NavController, onboardingViewModel: OnboardingVie
                 colors = ButtonDefaults.buttonColors(Variables.Grey200),
                 IconStart = {
                     Image(
-                        painter = painterResource(id = R.drawable.googlehd),
+                        painter = painterResource(id = R.drawable.ic_google),
                         contentDescription = "GoogleIcon", modifier = Modifier
                             .width(24.dp)
                             .height(24.dp)
@@ -132,7 +132,7 @@ fun WelcomePage(navController: NavController, onboardingViewModel: OnboardingVie
                 shape = RoundedCornerShape(999.dp),
                 IconStart = {
                     Image(
-                        painter = painterResource(id = R.drawable.githubhd),
+                        painter = painterResource(id = R.drawable.ic_github),
                         contentDescription = "GithubIcon", modifier = Modifier
                             .width(24.dp)
                             .height(24.dp)
@@ -184,7 +184,7 @@ fun WelcomePage(navController: NavController, onboardingViewModel: OnboardingVie
                     IconEnd = {
                         // Right Icon For Custom Button
                         Image(
-                            painter = painterResource(id = R.drawable.righthdicon),
+                            painter = painterResource(id = R.drawable.ic_right_indicator),
                             contentDescription = "RightIcon",
                             modifier = Modifier
                                 .padding(1.dp)

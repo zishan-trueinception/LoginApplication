@@ -231,7 +231,7 @@ fun SignUpScreen(navController: NavController,signUpViewModel: SignUpViewModel=h
                             leadingIcon = {
                                 // Password Icon
                                 Image(
-                                    painter = painterResource(id = R.drawable.password),
+                                    painter = painterResource(id = R.drawable.ic_password),
                                     contentDescription = "PassIcon",
                                     modifier = Modifier
                                         .width(24.dp)
@@ -278,7 +278,7 @@ fun SignUpScreen(navController: NavController,signUpViewModel: SignUpViewModel=h
                         IconEnd = {
                             // Right Icon
                             Image(
-                                painter = painterResource(id = R.drawable.righthdicon),
+                                painter = painterResource(id = R.drawable.ic_right_indicator),
                                 contentDescription = "RightIcon",
                                 modifier = Modifier
                                     .padding(1.dp)

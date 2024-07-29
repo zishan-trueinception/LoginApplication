@@ -41,6 +41,5 @@ fun StockBadgeComp(stock:String) {
                 letterSpacing = 0.2.sp,
             )
         )
-
     }
 }

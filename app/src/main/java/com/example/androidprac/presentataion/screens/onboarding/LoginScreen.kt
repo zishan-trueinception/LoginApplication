@@ -41,7 +41,6 @@ import androidx.navigation.NavController
 import com.example.androidprac.R
 import com.example.androidprac.presentataion.NavigationRoute
 import com.example.androidprac.presentataion.components.ButtonComp
-import com.example.androidprac.presentataion.components.Carousel
 
 @Composable
 // Login Page
@@ -195,7 +194,7 @@ fun LoginScreen(
                             leadingIcon = {
                                 // Password Icon
                                 Image(
-                                    painter = painterResource(id = R.drawable.password),
+                                    painter = painterResource(id = R.drawable.ic_password),
                                     contentDescription = "PassIcon",
                                     modifier = Modifier
                                         .width(24.dp)
@@ -253,7 +252,7 @@ fun LoginScreen(
                         IconEnd = {
                             // Right Icon For Login Button
                             Image(
-                                painter = painterResource(id = R.drawable.righthdicon),
+                                painter = painterResource(id = R.drawable.ic_right_indicator),
                                 contentDescription = "RightIcon",
                                 modifier = Modifier
                                     .padding(1.dp)

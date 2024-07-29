@@ -5,11 +5,11 @@ import com.example.androidprac.R
 class CarouselRepoImpl : CarouselRepo{
     override fun getCarouselList(): List<Int> {
         return listOf(
-            R.drawable.newbannerone,
-            R.drawable.newbannertwo,
-            R.drawable.newbannerreplace,
-            R.drawable.newbannerfourth,
-            R.drawable.newbannerfifth
+            R.drawable.image_banner_raspberry,
+            R.drawable.image_banner_balsawood,
+            R.drawable.image_banner_atomstack,
+            R.drawable.image_banner_printing,
+            R.drawable.image_banner_order
         )
     }
 }
