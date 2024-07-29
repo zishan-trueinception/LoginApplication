@@ -1,9 +1,10 @@
-package com.example.androidprac.presentataion.screens.dashboard
+package com.example.androidprac.presentataion.screens.dashboard.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,11 +14,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,11 +33,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.androidprac.R
-import com.example.androidprac.presentataion.components.CardComponent
+import com.example.androidprac.presentataion.components.TopCategoryListItem
 import com.example.androidprac.presentataion.components.Carousel
 import com.example.androidprac.presentataion.components.NewsletterComp
 import com.example.androidprac.presentataion.components.ProductCardComp
+import java.util.Locale.Category
 
 object Dimentions {
     val xSm: Dp = 8.dp
@@ -46,7 +53,11 @@ object Colors {
 
 // home screen
 @Composable
-fun HomeScreen() {
+fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
+    val topCategoriesUiState = homeViewModel.topCategoriesUiState.collectAsState().value
+    LaunchedEffect(key1 = Unit) {
+        homeViewModel.getTopCategories()
+    }
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -83,16 +94,19 @@ fun HomeScreen() {
                     },
                     trailingIcon = {
                         IconButton(onClick = { }) {
-                            Image(painter = painterResource(id = R.drawable.mic),
+                            Image(
+                                painter = painterResource(id = R.drawable.mic),
                                 contentDescription = "searchIcon",
                                 modifier = Modifier
                                     .padding(1.dp)
-                                    .size(24.dp))
+                                    .size(24.dp)
+                            )
                         }
                     }
                 )
                 IconButton(onClick = { }, modifier = Modifier.size(50.dp)) {
-                    Image(painter = painterResource(id = R.drawable.ic_avatar),
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_avatar),
                         contentDescription = "profileAvatar",
                     )
                 }
@@ -134,43 +148,44 @@ fun HomeScreen() {
                         .height(2.dp)
                 )
                 {}
-                LazyRow {
-                    item {
-                        CardComponent(
-                            onClick = { },
-                            text = "3D Printing",
-                            imageResId = R.drawable.image_3d_printer
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.image_development
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Raspberry Pi",
-                            imageResId = R.drawable.image_wires
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Cameras & Sensors",
-                            imageResId = R.drawable.image_camera
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.image_tools
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Raspberry Pi",
-                            imageResId = R.drawable.image_raspberry_pi
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Motors & Actuators",
-                            imageResId = R.drawable.image_actuator
-                        )
+                LazyRow(modifier = Modifier.fillMaxWidth()) {
+                    when (topCategoriesUiState) {
+                        is TopCategoriesUiState.Error -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()) {
+                                    Text(text = topCategoriesUiState.message, color = Color.Red)
+                                }
+
+                            }
+                        }
+
+                        TopCategoriesUiState.Idle -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()) {
+                                    Text(text = "No Categories to Show")
+                                }
+                            }
+                        }
+
+                        is TopCategoriesUiState.Loading -> {
+                            item {
+                                LinearProgressIndicator(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    progress = {
+                                        topCategoriesUiState.progress
+                                    })
+                            }
+                        }
+
+                        is TopCategoriesUiState.Success -> {
+                            items(topCategoriesUiState.data) { category ->
+                                TopCategoryListItem(
+                                    label = category.label,
+                                    image = category.image,
+                                    onClick = {},
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -276,6 +291,5 @@ fun HomeScreen() {
         item {
             NewsletterComp()
         }
-
     }
 }

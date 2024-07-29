@@ -6,6 +6,8 @@ import com.example.androidprac.core.data.repositories.HelloRepo
 import com.example.androidprac.core.data.repositories.HelloRepoImpl
 import com.example.androidprac.core.data.repositories.SignUpRepository
 import com.example.androidprac.core.data.repositories.SignUpRepositoryImpl
+import com.example.androidprac.core.data.repositories.topCategories.TopCategoriesRepo
+import com.example.androidprac.core.data.repositories.topCategories.TopCategoriesRepoImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +34,11 @@ object AppModule {
     @Provides
     fun ProvideCarouselRepo(): CarouselRepo {
         return CarouselRepoImpl()
+    }
+
+    @Singleton
+    @Provides
+    fun provideTopCategories(): TopCategoriesRepo {
+        return TopCategoriesRepoImpl()
     }
 }

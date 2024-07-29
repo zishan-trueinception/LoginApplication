@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.androidprac.R
+import com.example.androidprac.presentataion.screens.dashboard.home.HomeScreen
 
 @Composable
 fun HomePage(navController: NavController) {
