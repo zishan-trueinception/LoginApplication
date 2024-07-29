@@ -44,8 +44,7 @@ data class ImageCustomization(
 ) {
     companion object {
         val Default
-            @Composable
-            get() = ImageCustomization(
+            @Composable get() = ImageCustomization(
                 tint = LocalContentColor.current
             )
     }
@@ -60,10 +59,10 @@ fun DynamicImage(
 ) {
     when (imageSource) {
         is DynamicImageSource.Url -> {
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(imageSource.url)
-                    .build(),
+
+            // image load from url
+            AsyncImage(model = ImageRequest.Builder(LocalContext.current).data(imageSource.url)
+                .build(),
                 contentDescription = description,
                 contentScale = customization.contentScale,
                 alignment = customization.alignment,
@@ -73,10 +72,9 @@ fun DynamicImage(
                 error = painterResource(id = imageSource.fallback),
                 onError = { error ->
                     Log.e("DynamicImage", "URL: ${imageSource.url} DynamicImage Error: $error")
-                }
-            )
+                })
         }
-
+        // image load from local
         is DynamicImageSource.Local -> {
             if (imageSource.asVector) {
                 Icon(
@@ -96,7 +94,7 @@ fun DynamicImage(
                 )
             }
         }
-
+        // image load from vector
         is DynamicImageSource.Vector -> {
             Icon(
                 imageVector = imageSource.vectorImage,
@@ -105,7 +103,7 @@ fun DynamicImage(
                 tint = customization.tint ?: LocalContentColor.current,
             )
         }
-
+//        image load from uri
         is DynamicImageSource.ImageUri -> {
             // load image from uri
             Image(
@@ -117,16 +115,15 @@ fun DynamicImage(
                 modifier = customization.modifier
             )
         }
-
-        is DynamicImageSource.DrawableObject ->
-            Image(
-                painter = rememberAsyncImagePainter(imageSource.drawable),
-                contentDescription = description,
-                contentScale = customization.contentScale,
-                alignment = customization.alignment,
-                colorFilter = customization.colorFilter,
-                modifier = customization.modifier
-            )
+//        image load from drawable
+        is DynamicImageSource.DrawableObject -> Image(
+            painter = rememberAsyncImagePainter(imageSource.drawable),
+            contentDescription = description,
+            contentScale = customization.contentScale,
+            alignment = customization.alignment,
+            colorFilter = customization.colorFilter,
+            modifier = customization.modifier
+        )
     }
 }
 
