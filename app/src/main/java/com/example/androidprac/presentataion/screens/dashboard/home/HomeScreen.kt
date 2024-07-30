@@ -39,6 +39,7 @@ import com.example.androidprac.presentataion.components.TopCategoryListItem
 import com.example.androidprac.presentataion.components.Carousel
 import com.example.androidprac.presentataion.components.NewsletterComp
 import com.example.androidprac.presentataion.components.ProductCardComp
+import com.example.androidprac.presentataion.components.TopProductListItems
 import java.util.Locale.Category
 
 object Dimentions {
@@ -55,8 +56,12 @@ object Colors {
 @Composable
 fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
     val topCategoriesUiState = homeViewModel.topCategoriesUiState.collectAsState().value
+    val topProductUiState = homeViewModel.topProductUiState.collectAsState().value
     LaunchedEffect(key1 = Unit) {
         homeViewModel.getTopCategories()
+    }
+    LaunchedEffect(key1 = Unit) {
+        homeViewModel.getTopProducts()
     }
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
@@ -218,72 +223,47 @@ fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
                 )
                 {}
                 LazyRow {
-                    item {
-                        ProductCardComp(
-                            title = "Development Boards",
-                            imageResId = R.drawable.image_arduino,
-                            productname = "Arduino Nano RP2040",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            oldprice = "",
-                            price = "",
-                            onClick = {},
-                            rating = "4.9",
-                            stockStatus = "Out of Stock"
-                        )
-                        ProductCardComp(
-                            title = "raspberry pi",
-                            imageResId = R.drawable.image_raspberry_pi,
-                            productname = "Raspberry PI 4 Model B With 4GB RAM",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "₹ 5,999.00",
-                            oldprice = "₹ 6,400.00",
-                            price = "",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = null
-                        )
-                        ProductCardComp(
-                            title = "3D Printers",
-                            imageResId = R.drawable.image_printer,
-                            productname = "3D Printer Extruder 0.5mm nozzle",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            oldprice = "",
-                            price = "",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = "Out of Stock"
-                        )
-                        ProductCardComp(
-                            title = "Sensors & Cameras",
-                            imageResId = R.drawable.image_sensor,
-                            productname = "3D Printer Extruder 0.5mm nozzle",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            price = "₹ 6,400.00",
-                            oldprice = "",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = "Available Soon"
-                        )
-                        ProductCardComp(
-                            title = "Development Boards",
-                            imageResId = R.drawable.image_arduino,
-                            productname = "Original Arduino UNO Atmega325u",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            oldprice = "",
-                            price = "₹ 950.00",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = null
-                        )
+                    when(topProductUiState){
+                        is TopProductUiState.Error -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()){
+                                    Text(text = topProductUiState.message, color = Color.Red)
+                                }
+                            }
+                        }
+                        is TopProductUiState.Idle -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()){
+                                    Text(text = "No Products to Show")
+                                }
+                            }
+                        }
+                        is TopProductUiState.Loading -> {
+                            item {
+                                LinearProgressIndicator(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    progress = {
+                                        topProductUiState.progress
+                                    })
+                            }
+                        }
+                        is TopProductUiState.Success -> {
+                            items(topProductUiState.data) { products ->
+                                TopProductListItems(
+                                    label = products.label,
+                                    productName = products.productName,
+                                    image = products.image,
+                                    deliveryType = products.deliveryType,
+                                    rating = products.rating,
+                                    view = products.view,
+                                    productOldPrice = products.productOldPrice,
+                                    productCurrentPrice = products.productCurrentPrice,
+                                    stockStatus = products.stockStatus,
+                                    onClick = {},
+                                )
+
+                            }
+                        }
                     }
                 }
             }
