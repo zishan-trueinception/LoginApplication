@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.example.androidprac.presentataion.screens.onboarding.Variables
 
 
-// Card Component
+// Card Component for top categories
 @Composable
 fun TopCategoryListItem(
     label: String,
