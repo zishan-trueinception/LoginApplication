@@ -1,9 +1,10 @@
-package com.example.androidprac.presentataion.screens.dashboard
+package com.example.androidprac.presentataion.screens.dashboard.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,11 +14,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,18 +30,21 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.androidprac.R
-import com.example.androidprac.presentataion.components.CardComponent
+import com.example.androidprac.presentataion.components.TopCategoryListItem
 import com.example.androidprac.presentataion.components.Carousel
+import com.example.androidprac.presentataion.components.NewsletterComp
 import com.example.androidprac.presentataion.components.ProductCardComp
+import com.example.androidprac.presentataion.components.TopProductListItems
+import java.util.Locale.Category
 
 object Dimentions {
     val xSm: Dp = 8.dp
-    val xxSm: Dp = 4.dp
+//    val xxSm: Dp = 4.dp
 }
 
 object Colors {
@@ -45,9 +53,16 @@ object Colors {
 }
 
 // home screen
-@Preview
 @Composable
-fun HomeScreen() {
+fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
+    val topCategoriesUiState = homeViewModel.topCategoriesUiState.collectAsState().value
+    val topProductUiState = homeViewModel.topProductUiState.collectAsState().value
+    LaunchedEffect(key1 = Unit) {
+        homeViewModel.getTopCategories()
+    }
+    LaunchedEffect(key1 = Unit) {
+        homeViewModel.getTopProducts()
+    }
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(32.dp, Alignment.Top),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -66,13 +81,15 @@ fun HomeScreen() {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 OutlinedTextField(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(55.dp),
                     value = "", onValueChange = {},
                     placeholder = { Text(text = "Search for Parts") },
                     shape = RoundedCornerShape(999.dp),
                     leadingIcon = {
                         Image(
-                            painter = painterResource(id = R.drawable.newkilo),
+                            painter = painterResource(id = R.drawable.ic_newkilo),
                             contentDescription = "",
                             modifier = Modifier
                                 .padding(0.dp)
@@ -82,22 +99,26 @@ fun HomeScreen() {
                     },
                     trailingIcon = {
                         IconButton(onClick = { }) {
-                            Image(painter = painterResource(id = R.drawable.mic),
+                            Image(
+                                painter = painterResource(id = R.drawable.mic),
                                 contentDescription = "searchIcon",
                                 modifier = Modifier
                                     .padding(1.dp)
-                                    .size(24.dp))
+                                    .size(24.dp)
+                            )
                         }
                     }
                 )
                 IconButton(onClick = { }, modifier = Modifier.size(50.dp)) {
-                    Image(painter = painterResource(id = R.drawable.newavatar),
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_avatar),
                         contentDescription = "profileAvatar",
                     )
                 }
             }
         }
         item {
+            //dagger hilt component
             Carousel()
         }
 
@@ -132,43 +153,44 @@ fun HomeScreen() {
                         .height(2.dp)
                 )
                 {}
-                LazyRow {
-                    item {
-                        CardComponent(
-                            onClick = { },
-                            text = "3D Printing",
-                            imageResId = R.drawable.eclips
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.development
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Raspberry Pi",
-                            imageResId = R.drawable.wires
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Cameras & Sensors",
-                            imageResId = R.drawable.camera
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Development Boards",
-                            imageResId = R.drawable.passive
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Raspberry Pi",
-                            imageResId = R.drawable.raspberry
-                        )
-                        CardComponent(
-                            onClick = { },
-                            text = "Motors & Actuators",
-                            imageResId = R.drawable.actuator
-                        )
+                LazyRow(modifier = Modifier.fillMaxWidth()) {
+                    when (topCategoriesUiState) {
+                        is TopCategoriesUiState.Error -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()) {
+                                    Text(text = topCategoriesUiState.message, color = Color.Red)
+                                }
+
+                            }
+                        }
+
+                        TopCategoriesUiState.Idle -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()) {
+                                    Text(text = "No Categories to Show")
+                                }
+                            }
+                        }
+
+                        is TopCategoriesUiState.Loading -> {
+                            item {
+                                LinearProgressIndicator(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    progress = {
+                                        topCategoriesUiState.progress
+                                    })
+                            }
+                        }
+
+                        is TopCategoriesUiState.Success -> {
+                            items(topCategoriesUiState.data) { category ->
+                                TopCategoryListItem(
+                                    label = category.label,
+                                    image = category.image,
+                                    onClick = {},
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -201,75 +223,53 @@ fun HomeScreen() {
                 )
                 {}
                 LazyRow {
-                    item {
-                        ProductCardComp(
-                            title = "Development Boards",
-                            imageResId = R.drawable.stack,
-                            productname = "Arduino Nano RP2040",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            oldprice = "",
-                            price = "",
-                            onClick = {},
-                            rating = "4.9",
-                            stockStatus = "Out of Stock"
-                        )
-                        ProductCardComp(
-                            title = "raspberry pi",
-                            imageResId = R.drawable.raspberry,
-                            productname = "Raspberry PI 4 Model B With 4GB RAM",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "₹ 5,999.00",
-                            oldprice = "₹ 6,400.00",
-                            price = "",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = "Out of Stock"
-                        )
-                        ProductCardComp(
-                            title = "3D Printers",
-                            imageResId = R.drawable.printer,
-                            productname = "3D Printer Extruder 0.5mm nozzle",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            oldprice = "",
-                            price = "",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = "Out of Stock"
-                        )
-                        ProductCardComp(
-                            title = "Sensors & Cameras",
-                            imageResId = R.drawable.sensor,
-                            productname = "3D Printer Extruder 0.5mm nozzle",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            price = "₹ 6,400.00",
-                            oldprice = "",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = "Out of Stock"
-                        )
-                        ProductCardComp(
-                            title = "Development Boards",
-                            imageResId = R.drawable.arduino,
-                            productname = "Original Arduino UNO Atmega325u",
-                            deliverytype = "free delivery",
-                            view = "1563 reviews",
-                            offerprice = "",
-                            oldprice = "",
-                            price = "₹ 950.00",
-                            onClick = {},
-                            rating = "4.8",
-                            stockStatus = "Out of Stock"
-                        )
+                    when(topProductUiState){
+                        is TopProductUiState.Error -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()){
+                                    Text(text = topProductUiState.message, color = Color.Red)
+                                }
+                            }
+                        }
+                        is TopProductUiState.Idle -> {
+                            item {
+                                Box(modifier = Modifier.fillMaxWidth()){
+                                    Text(text = "No Products to Show")
+                                }
+                            }
+                        }
+                        is TopProductUiState.Loading -> {
+                            item {
+                                LinearProgressIndicator(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    progress = {
+                                        topProductUiState.progress
+                                    })
+                            }
+                        }
+                        is TopProductUiState.Success -> {
+                            items(topProductUiState.data) { products ->
+                                TopProductListItems(
+                                    label = products.label,
+                                    productName = products.productName,
+                                    image = products.image,
+                                    deliveryType = products.deliveryType,
+                                    rating = products.rating,
+                                    view = products.view,
+                                    productOldPrice = products.productOldPrice,
+                                    productCurrentPrice = products.productCurrentPrice,
+                                    stockStatus = products.stockStatus,
+                                    onClick = {},
+                                )
+
+                            }
+                        }
                     }
                 }
             }
+        }
+        item {
+            NewsletterComp()
         }
     }
 }

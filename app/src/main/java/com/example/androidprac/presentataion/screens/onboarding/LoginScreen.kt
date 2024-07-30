@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.ButtonDefaults
@@ -34,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidprac.R
 import com.example.androidprac.presentataion.NavigationRoute
@@ -41,7 +44,9 @@ import com.example.androidprac.presentataion.components.ButtonComp
 
 @Composable
 // Login Page
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(
+    navController: NavController, carouselViewModel: CarouselViewModel = hiltViewModel()
+) {
 
     //Checkbox for Remember Me
     var checked by remember { mutableStateOf(true) }
@@ -62,6 +67,8 @@ fun LoginScreen(navController: NavController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
+                .verticalScroll(rememberScrollState())
+
         ) {
             Column(
                 verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.Top),
@@ -121,7 +128,7 @@ fun LoginScreen(navController: NavController) {
                     // Email Field
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         value = "",
-                        onValueChange = {},
+                        onValueChange = { },
                         placeholder = {
                             Text(text = "john@example.com")
                         },
@@ -180,14 +187,14 @@ fun LoginScreen(navController: NavController) {
                         // Password Field
                         OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                             value = "",
-                            onValueChange = {},
+                            onValueChange = { },
                             placeholder = {
                                 Text(text = "********")
                             },
                             leadingIcon = {
                                 // Password Icon
                                 Image(
-                                    painter = painterResource(id = R.drawable.password),
+                                    painter = painterResource(id = R.drawable.ic_password),
                                     contentDescription = "PassIcon",
                                     modifier = Modifier
                                         .width(24.dp)
@@ -227,7 +234,7 @@ fun LoginScreen(navController: NavController) {
                         .height(48.dp)
                 ) {
                     // Custom Button For Login
-                    ButtonComp(onClick = { navController.navigate(NavigationRoute.Home) },
+                    ButtonComp(onClick = { navController.navigate(NavigationRoute.Homepage) },
                         text = "LOG IN",
                         style = TextStyle(
                             fontSize = 16.sp,
@@ -245,7 +252,7 @@ fun LoginScreen(navController: NavController) {
                         IconEnd = {
                             // Right Icon For Login Button
                             Image(
-                                painter = painterResource(id = R.drawable.righthdicon),
+                                painter = painterResource(id = R.drawable.ic_right_indicator),
                                 contentDescription = "RightIcon",
                                 modifier = Modifier
                                     .padding(1.dp)

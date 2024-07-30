@@ -8,8 +8,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -24,19 +27,22 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.androidprac.R
+import com.example.androidprac.presentataion.screens.onboarding.CarouselViewModel
 import kotlinx.coroutines.delay
 
 // Banner Carousel
 @Composable
-fun Carousel(modifier: Modifier = Modifier) {
-    val images = listOf(
-        R.drawable.newbannerone,
-        R.drawable.newbannertwo,
-        R.drawable.newbannerreplace,
-        R.drawable.newbannerfourth,
-        R.drawable.newbannerfifth
-    )
+fun Carousel(modifier: Modifier = Modifier,carouselViewModel: CarouselViewModel= hiltViewModel()) {
+    val images = carouselViewModel.getCarouselList()
+//        listOf(
+//        R.drawable.newbannerone,
+//        R.drawable.newbannertwo,
+//        R.drawable.newbannerreplace,
+//        R.drawable.newbannerfourth,
+//        R.drawable.newbannerfifth
+//    )
     val pagerState = rememberPagerState(pageCount = { images.size })
     LaunchedEffect(Unit) {
         while (true) {
@@ -61,7 +67,7 @@ fun Carousel(modifier: Modifier = Modifier) {
                     modifier
                         .wrapContentSize()
                         .padding(0.dp),
-                    elevation = CardDefaults.cardElevation(8.dp)
+                    elevation = CardDefaults.cardElevation(4.dp)
                 ) {
                     Box {
 

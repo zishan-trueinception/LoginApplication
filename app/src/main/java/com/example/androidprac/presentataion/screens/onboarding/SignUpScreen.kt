@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
@@ -29,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.androidprac.R
 import com.example.androidprac.presentataion.NavigationRoute
@@ -37,7 +40,8 @@ import com.example.androidprac.presentataion.components.ButtonComp
 @Composable
 
 // Account Page
-fun SignUpScreen(navController: NavController) {
+fun SignUpScreen(navController: NavController,signUpViewModel: SignUpViewModel=hiltViewModel()) {
+
     Column(
         Modifier
             .fillMaxWidth()
@@ -47,7 +51,8 @@ fun SignUpScreen(navController: NavController) {
         Column(
             Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         )
@@ -60,7 +65,7 @@ fun SignUpScreen(navController: NavController) {
             ) {
                 // Text for APP Name
                 Text(
-                    text = "Create Account",
+                    text = signUpViewModel.getSignUpString(),
                     Modifier
                         .fillMaxWidth(),
                     style = TextStyle(
@@ -226,7 +231,7 @@ fun SignUpScreen(navController: NavController) {
                             leadingIcon = {
                                 // Password Icon
                                 Image(
-                                    painter = painterResource(id = R.drawable.password),
+                                    painter = painterResource(id = R.drawable.ic_password),
                                     contentDescription = "PassIcon",
                                     modifier = Modifier
                                         .width(24.dp)
@@ -273,7 +278,7 @@ fun SignUpScreen(navController: NavController) {
                         IconEnd = {
                             // Right Icon
                             Image(
-                                painter = painterResource(id = R.drawable.righthdicon),
+                                painter = painterResource(id = R.drawable.ic_right_indicator),
                                 contentDescription = "RightIcon",
                                 modifier = Modifier
                                     .padding(1.dp)

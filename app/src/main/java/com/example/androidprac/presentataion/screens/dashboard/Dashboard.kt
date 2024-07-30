@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.androidprac.R
+import com.example.androidprac.presentataion.screens.dashboard.home.HomeScreen
 
 @Composable
 fun HomePage(navController: NavController) {
@@ -26,7 +27,7 @@ fun HomePage(navController: NavController) {
             ) {
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
-                        painter = painterResource(id = R.drawable.home),
+                        painter = painterResource(id = R.drawable.ic_home),
                         contentDescription = "HomeIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
@@ -35,7 +36,7 @@ fun HomePage(navController: NavController) {
                 }, label = { Text(text = "Home") })
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
-                        painter = painterResource(id = R.drawable.offer),
+                        painter = painterResource(id = R.drawable.ic_offer),
                         contentDescription = "offerIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
@@ -44,7 +45,7 @@ fun HomePage(navController: NavController) {
                 }, label = { Text(text = "Offers") })
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
-                        painter = painterResource(id = R.drawable.categoryy),
+                        painter = painterResource(id = R.drawable.ic_category),
                         contentDescription = "CategoryIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
@@ -53,7 +54,7 @@ fun HomePage(navController: NavController) {
                 }, label = { Text(text = "Category") })
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
-                        painter = painterResource(id = R.drawable.phonecall),
+                        painter = painterResource(id = R.drawable.ic_phone_call),
                         contentDescription = "CallIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)
@@ -62,7 +63,7 @@ fun HomePage(navController: NavController) {
                 }, label = { Text(text = "Call") })
                 NavigationBarItem(selected = false, onClick = { }, icon = {
                     Image(
-                        painter = painterResource(id = R.drawable.profile),
+                        painter = painterResource(id = R.drawable.ic_account_profile),
                         contentDescription = "ProfileIcon", modifier = Modifier
                             .padding(1.dp)
                             .width(28.dp)

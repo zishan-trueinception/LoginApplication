@@ -25,7 +25,7 @@ sealed class NavigationRoute {
     data object Account : NavigationRoute()
 
     @Serializable
-    data object Home : NavigationRoute()
+    data object Homepage : NavigationRoute()
 
 }
 @Composable
@@ -36,6 +36,6 @@ fun NavController() {
         composable<NavigationRoute.Welcome> { WelcomePage(navController) }
         composable<NavigationRoute.Login> { LoginScreen(navController) }
         composable<NavigationRoute.Account> { SignUpScreen(navController) }
-        composable<NavigationRoute.Home> { HomePage(navController) }
+        composable<NavigationRoute.Homepage> { HomePage(navController) }
     }
 }
