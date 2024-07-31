@@ -42,12 +42,12 @@ fun TopProductListItems(
 ) {
     Box(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(2.dp)
             .clip(shape = RoundedCornerShape(8.dp))
             .clickable(onClick = onClick)
             //.border(1.dp, Color.Gray, RoundedCornerShape(8.dp))
             .background(Color.White, RoundedCornerShape(8.dp))
-            .padding(16.dp)
+            .padding(4.dp)
     ) {
         Column(
             modifier = Modifier
