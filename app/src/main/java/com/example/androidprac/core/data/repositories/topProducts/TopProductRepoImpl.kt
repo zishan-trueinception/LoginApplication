@@ -14,7 +14,7 @@ class TopProductRepoImpl : TopProductRepo {
                 deliveryType = "free delivery",
                 productCurrentPrice = "",
                 productOldPrice = null,
-                stockStatus = null,
+                stockStatus = "available soon",
                 rating = "4.5",
                 view = "1563 views"
             ),

@@ -6,10 +6,13 @@ import com.example.androidprac.core.data.repositories.HelloRepo
 import com.example.androidprac.core.data.repositories.HelloRepoImpl
 import com.example.androidprac.core.data.repositories.SignUpRepository
 import com.example.androidprac.core.data.repositories.SignUpRepositoryImpl
+import com.example.androidprac.core.data.repositories.pracRepo.PracRepo
+import com.example.androidprac.core.data.repositories.pracRepo.PracRepoImpl
 import com.example.androidprac.core.data.repositories.topCategories.TopCategoriesRepo
 import com.example.androidprac.core.data.repositories.topCategories.TopCategoriesRepoImpl
 import com.example.androidprac.core.data.repositories.topProducts.TopProductRepo
 import com.example.androidprac.core.data.repositories.topProducts.TopProductRepoImpl
+import com.example.androidprac.core.models.PracModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,5 +51,11 @@ object AppModule {
     @Provides
     fun provideTopProducts(): TopProductRepo {
         return TopProductRepoImpl()
+    }
+
+    @Singleton
+    @Provides
+    fun getPracModel(): PracRepo {
+        return PracRepoImpl()
     }
 }
