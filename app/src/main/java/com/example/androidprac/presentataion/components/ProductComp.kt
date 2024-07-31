@@ -57,6 +57,7 @@ fun TopProductListItems(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+            // text for label
             Text(
                 modifier = Modifier.width(129.dp),
                 text = label,
