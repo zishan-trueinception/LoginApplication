@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -51,7 +52,7 @@ fun TopProductListItems(
     ) {
         Column(
             modifier = Modifier
-                .width(224.dp)
+                .width(200.dp)
                 .height(384.dp)
                 .padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp),
             horizontalAlignment = Alignment.Start,

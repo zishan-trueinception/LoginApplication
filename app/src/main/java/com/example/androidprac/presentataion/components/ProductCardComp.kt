@@ -46,8 +46,8 @@ fun ProductCardComp(
     stockStatus:String? = null,
     view: String,
     offerprice: String,
-    oldprice: String,
-    price: String,
+    oldprice: String? = null,
+    price: String? = null,
     onClick: () -> Unit,
 ) {
     Surface(
@@ -153,47 +153,56 @@ fun ProductCardComp(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = price,
-                    style = TextStyle(
-                        fontSize = 14.sp,
-                        fontFamily = FontFamily.SansSerif,
-                        fontWeight = FontWeight(400),
+                if (price != null) {
+                    Text(
+                        text = price,
+                        style = TextStyle(
+                            fontSize = 14.sp,
+                            fontFamily = FontFamily.SansSerif,
+                            fontWeight = FontWeight(400),
+                        )
                     )
-                )
-            }
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(
-                    4.dp,
-                    Alignment.CenterHorizontally
-                ),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = oldprice,
-                    style = TextStyle(
-                        fontSize = 12.sp,
-                        lineHeight = 16.sp,
-                        fontFamily = FontFamily.SansSerif,
-                        fontWeight = FontWeight(400),
-                        color = ProductCardColor.textDisabled,
-                        textDecoration = TextDecoration.LineThrough,
-                    ), modifier = Modifier
-                        .width(58.dp)
-                    //.height(16.dp)
-                )
-                Text(
-                    text = offerprice,
-                    style = TextStyle(
-                        fontSize = 14.sp,
-                        lineHeight = 20.sp,
-                        fontFamily = FontFamily.SansSerif,
-                        fontWeight = FontWeight(700),
-                        color = ProductCardColor.Green500,
-                    ), modifier = Modifier
-                        .width(68.dp)
-                    //.height(20.dp)
-                )
+                } else {
+
+//                }
+//            }
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(
+                            4.dp,
+                            Alignment.CenterHorizontally
+                        ),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (oldprice!=null) {
+                            Text(
+                                text = oldprice,
+                                style = TextStyle(
+                                    fontSize = 12.sp,
+                                    lineHeight = 16.sp,
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontWeight = FontWeight(400),
+                                    color = ProductCardColor.textDisabled,
+                                    textDecoration = TextDecoration.LineThrough,
+                                ), modifier = Modifier
+                                    .width(58.dp)
+                                //.height(16.dp)
+                            )
+                        }else {
+                            Text(
+                                text = offerprice,
+                                style = TextStyle(
+                                    fontSize = 14.sp,
+                                    lineHeight = 20.sp,
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontWeight = FontWeight(700),
+                                    color = ProductCardColor.Green500,
+                                ), modifier = Modifier
+                                    .width(68.dp)
+                                //.height(20.dp)
+                            )
+                        }
+                    }
+                }
             }
         }
     }

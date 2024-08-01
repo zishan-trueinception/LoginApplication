@@ -12,8 +12,8 @@ class TopProductRepoImpl : TopProductRepo {
                 image = DynamicImageSource.Local(R.drawable.image_arduino),
                 productName = "Arduino Nano RP2040",
                 deliveryType = "free delivery",
-                productCurrentPrice = "",
-                productOldPrice = null,
+                productCurrentPrice = "9000.00",
+                productOldPrice = "454545.00",
                 stockStatus = "available soon",
                 rating = "4.5",
                 view = "1563 views"
