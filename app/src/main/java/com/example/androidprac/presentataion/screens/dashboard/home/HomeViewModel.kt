@@ -1,6 +1,7 @@
 package com.example.androidprac.presentataion.screens.dashboard.home
 
 import androidx.lifecycle.ViewModel
+import com.example.androidprac.core.data.repositories.CarouselRepo
 import com.example.androidprac.core.data.repositories.topCategories.TopCategoriesRepo
 import com.example.androidprac.core.data.repositories.topProducts.TopProductRepo
 import com.example.androidprac.core.models.CategoryModel
@@ -34,6 +35,8 @@ class HomeViewModel @Inject constructor(
     private val topCategoriesRepo: TopCategoriesRepo,
     private val topProductRepo: TopProductRepo
 ) : ViewModel() {
+
+
     private var _topCategoriesUiState =
         MutableStateFlow<TopCategoriesUiState>(TopCategoriesUiState.Idle)
 

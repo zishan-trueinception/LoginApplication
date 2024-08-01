@@ -9,5 +9,7 @@ import javax.inject.Inject
 class CarouselViewModel @Inject constructor(
     private val carouselRepo: CarouselRepo
 ) : ViewModel() {
-    fun getCarouselList() = carouselRepo.getCarouselList()
+    fun getCarouselList() : List<Int> {
+        return carouselRepo.getCarouselList()
+    }
 }

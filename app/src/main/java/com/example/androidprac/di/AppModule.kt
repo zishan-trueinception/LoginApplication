@@ -35,9 +35,9 @@ object AppModule {
     // Instance of carousel
     @Singleton
     @Provides
-    fun ProvideCarouselRepo(): CarouselRepo {
-        return CarouselRepoImpl()
-    }
+  fun provideCarousel(): CarouselRepo{
+      return CarouselRepoImpl()
+  }
 
     // Instance of top categories
     @Singleton
